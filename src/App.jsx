@@ -19,7 +19,7 @@ import Profile from "./pages/Profile"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<MainLayout/>}>
-    <Route index elements={<Site/>}/>
+    <Route index element={<Site/>}/>
     <Route path="/powerplant" element={<Powerplant/>}/>
     <Route path="/powerplant/types" element={<PowerplantTypes/>}/>
     <Route path="/protocols/manage" element={<ManageProtocols/>}/>

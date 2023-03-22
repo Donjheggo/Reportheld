@@ -15,6 +15,16 @@ import IconButton from '@mui/material/IconButton';
 
 /////// MUI ICONS /////////////
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
+import Groups2Icon from '@mui/icons-material/Groups2';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import ClassIcon from '@mui/icons-material/Class';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import WorkspacesIcon from '@mui/icons-material/Workspaces';
+import RateReviewIcon from '@mui/icons-material/RateReview';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import FactoryIcon from '@mui/icons-material/Factory';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -105,7 +115,7 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -124,7 +134,7 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap component="div">
             Reportheld
           </Typography>
-          <SignalCellularAltIcon/>
+          <SignalCellularAltIcon style={{ marginLeft: '8px' }}/>
           
         </Toolbar>
       </AppBar>
@@ -155,7 +165,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <LocationOnIcon/> 
                     </ListItemIcon>
                     <ListItemText primary={"Site"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -180,7 +190,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <FactoryIcon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Powerplant"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -230,7 +240,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <AccountTreeIcon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Manage Protocols"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -255,7 +265,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <ViewListIcon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Templates"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -280,17 +290,17 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <WorkspacesIcon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Variants"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
                 </ListItem>
               </NavLink>
               
-              {/* Item Type */}
+              {/* Item Type Definition */}
              <Divider />
              <NavLink to="/item/type">
-                <ListItem key={"Item Type"} disablePadding sx={{ display: 'block' }}>
+                <ListItem key={"Item Type Definition"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
                     sx={{
                       minHeight: 48,
@@ -305,37 +315,12 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <ClassIcon /> 
                     </ListItemIcon>
-                    <ListItemText primary={"Item Type"} sx={{ opacity: open ? 1 : 0 }} />
+                    <ListItemText primary={"Item Type Definition"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
                 </ListItem>
               </NavLink>
-
-              {/* Definitions */}
-             <Divider />
-             <NavLink to="/definitions">
-                <ListItem key={"Definitions"} disablePadding sx={{ display: 'block' }}>
-                  <ListItemButton
-                    sx={{
-                      minHeight: 48,
-                      justifyContent: open ? 'initial' : 'center',
-                      px: 2.5,
-                    }}
-                  >
-                    <ListItemIcon
-                      sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : 'auto',
-                        justifyContent: 'center',
-                      }}
-                    >
-                    <InboxIcon /> 
-                    </ListItemIcon>
-                    <ListItemText primary={"Definitions"} sx={{ opacity: open ? 1 : 0 }} />
-                  </ListItemButton>
-                </ListItem>
-             </NavLink>
 
               {/* Users */}
              <Divider />
@@ -355,7 +340,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <Groups2Icon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Users"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -380,7 +365,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <Diversity3Icon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Groups"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -405,7 +390,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <RateReviewIcon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Feedback"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -430,7 +415,7 @@ export default function MiniDrawer() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <AccountBoxIcon /> 
                     </ListItemIcon>
                     <ListItemText primary={"Profile"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -440,11 +425,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-            
-        <Outlet/>
 
-      </Box>
-    </Box>
+    </>
   );
 }
