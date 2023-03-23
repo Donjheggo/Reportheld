@@ -13,10 +13,12 @@ import {
   TextField,
   Tooltip,
 } from '@mui/material';
+import Groups2Icon from '@mui/icons-material/Groups2';
+import FactoryIcon from '@mui/icons-material/Factory';
 import { Delete, Edit } from '@mui/icons-material';
-import { data, states } from '../data/mockData';
+import { data, address } from '../data/mockData';
 
-const Example = () => {
+const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => data);
   const [validationErrors, setValidationErrors] = useState({});
@@ -42,7 +44,7 @@ const Example = () => {
   const handleDeleteRow = useCallback(
     (row) => {
       if (
-        !confirm(`Are you sure you want to delete ${row.getValue('firstName')}`)
+        !confirm(`Are you sure you want to delete ${row.getValue('Name')}`)
       ) {
         return;
       }
@@ -87,54 +89,21 @@ const Example = () => {
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'id',
-        header: 'ID',
-        enableColumnOrdering: false,
-        enableEditing: false, //disable editing on this column
-        enableSorting: false,
-        size: 80,
-      },
-      {
-        accessorKey: 'firstName',
-        header: 'First Name',
+        accessorKey: 'Name',
+        header: 'Name',
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'lastName',
-        header: 'Last Name',
-        size: 140,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-        }),
-      },
-      {
-        accessorKey: 'email',
-        header: 'Email',
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'email',
-        }),
-      },
-      {
-        accessorKey: 'age',
-        header: 'Age',
-        size: 80,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-          type: 'number',
-        }),
-      },
-      {
-        accessorKey: 'state',
-        header: 'State',
+        accessorKey: 'address',
+        header: 'Address',
         muiTableBodyCellEditTextFieldProps: {
           select: true, //change to select for a dropdown
-          children: states.map((state) => (
-            <MenuItem key={state} value={state}>
-              {state}
+          children: address.map((address) => (
+            <MenuItem key={address} value={address}>
+              {address}
             </MenuItem>
           )),
         },
@@ -162,8 +131,8 @@ const Example = () => {
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
         renderRowActions={({ row, table }) => (
-          <Box sx={{ display: 'flex', gap: '1rem' }}>
-            <Tooltip arrow placement="left" title="Edit">
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+            <Tooltip arrow placement="right" title="Edit">
               <IconButton color="warning" onClick={() => table.setEditingRow(row)}>
                 <Edit />
               </IconButton>
@@ -173,21 +142,35 @@ const Example = () => {
                 <Delete />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="right" title="Delete">
-              <Button color="primary" variant="contained" onClick={() => {alert("Navigate to groups")}}>
-                <p> POWERPLANTS</p>
+            <Tooltip arrow placement="right" title="Powerplants">
+              <Button color="secondary" onClick={() => {alert("Navigate to Powerplant")}}>
+                <FactoryIcon/>
+              </Button>
+            </Tooltip>
+            <Tooltip arrow placement="right" title="Edit Groups">
+              <Button color="success" onClick={() => {alert("Navigate to groups")}}>
+                <Groups2Icon/>
               </Button>
             </Tooltip>
           </Box>
         )}
         renderTopToolbarCustomActions={() => (
-          <Button
-            color="primary"
-            onClick={() => setCreateModalOpen(true)}
-            variant="contained"
-          >
-            CREATE SITE
-          </Button>
+          <Box sx={{ display: 'flex', gap: '1rem', p: '4px' }}>
+            <Button
+              color="primary"
+              onClick={() => setCreateModalOpen(true)}
+              variant="contained"
+            >
+              CREATE SITE
+            </Button>
+            <Button
+              color="warning"
+              onClick={() => {console.log("test")}}
+              variant="contained"
+            >
+              FIX PERMISSIONS
+            </Button>
+          </Box>
         )}
       />
       <CreateNewAccountModal
@@ -217,7 +200,7 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
 
   return (
     <Dialog open={open}>
-      <DialogTitle textAlign="center">Create New Account</DialogTitle>
+      <DialogTitle textAlign="center">Create New Site</DialogTitle>
       <DialogContent>
         <form onSubmit={(e) => e.preventDefault()}>
           <Stack
@@ -241,8 +224,8 @@ export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
         </form>
       </DialogContent>
       <DialogActions sx={{ p: '1.25rem' }}>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button color="secondary" onClick={handleSubmit} variant="contained">
+        <Button onClick={onClose} color="error">Cancel</Button>
+        <Button color="primary" onClick={handleSubmit} variant="contained">
           Save
         </Button>
       </DialogActions>
@@ -260,4 +243,4 @@ const validateEmail = (email) =>
     );
 const validateAge = (age) => age >= 18 && age <= 50;
 
-export default Example;
+export default Site;
