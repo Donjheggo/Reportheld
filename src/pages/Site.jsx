@@ -157,13 +157,14 @@ const Site = () => {
         renderTopToolbarCustomActions={() => (
           <Box sx={{ display: 'flex', gap: '1rem', p: '4px' }}>
             <Button
-              color="primary"
+              style={{backgroundColor: '#99cc33'}}
               onClick={() => setCreateModalOpen(true)}
               variant="contained"
             >
               CREATE SITE
             </Button>
             <Button
+              style={{backgroundColor: 'gray'}}
               color="warning"
               onClick={() => {console.log("test")}}
               variant="contained"

@@ -15,11 +15,11 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const Layout = () => {
+const MainLayout = () => {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex"}}>
       <Navigation />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, backgroundColor: 'aliceblue', height: '100vh' }}>
         <DrawerHeader />
         <Outlet />
       </Box>
@@ -27,4 +27,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default MainLayout;

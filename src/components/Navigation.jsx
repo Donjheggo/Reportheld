@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavLink, Outlet } from 'react-router-dom'
 
 //////// MUI //////////////////
-import { styled, useTheme } from '@mui/material/styles';
+import { styled, useTheme, createTheme, ThemeProvider, } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -26,14 +26,14 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FactoryIcon from '@mui/icons-material/Factory';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 
+import logo from "/images/swbt_logo.png"
 
 const drawerWidth = 240;
 
@@ -117,20 +117,28 @@ export default function MiniDrawer() {
   return (
     <>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} style={{backgroundColor: '#99cc33'}}>
         <Toolbar>
+
+        {!open ? 
+        (
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
+            sx={{marginRight: 2}}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton>) 
+          : 
+          (
+            <IconButton onClick={handleDrawerClose} color="inherit">
+              <ArrowBackIosIcon/>
+            </IconButton>
+          ) 
+          }
+          
           <Typography variant="h6" noWrap component="div">
             Reportheld
           </Typography>
@@ -138,19 +146,21 @@ export default function MiniDrawer() {
           
         </Toolbar>
       </AppBar>
+      
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
+        <DrawerHeader style={{display: 'flex', justifyContent: 'flex-start'}}>
+          <img src={logo} width="50px" style={{borderRadius: '5px'}} />
+          <Typography variant='h3' sx={{marginLeft: '10px', color: '#99cc33', fontWeight: 'bolder', fontFamily: 'tahoma'}} >
+            SWBT
+          </Typography>
         </DrawerHeader>
         <Divider />
         <List style={{paddingTop: '0px'}}>
-     
+  
               {/* SITE */}
              <Divider />
               <NavLink to="/">
-                <ListItem key={"Site"} disablePadding sx={{ display: 'block' }}>
+                <ListItem  key={"Site"} disablePadding sx={{ display: 'block'}} >
                   <ListItemButton
                     sx={{
                       minHeight: 48,
