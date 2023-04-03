@@ -27,6 +27,34 @@ export const data = [
     Name: 'Janick Willms',
     address: 'Nebraska',
   },
+  {
+    Name: 'Kelvin Langosh',
+    address: 'Ohio',
+  },
+  {
+    Name: 'Molly Purdy',
+    address: 'Rhode Island',
+  },
+  {
+    Name: 'Henry Lynch',
+    address: 'California',
+  },
+  {
+    Name: 'Glenda Douglas',
+    address: 'Montana',
+  },
+  {
+    Name: 'Leone Williamson',
+    address: 'Colorado',
+  },
+  {
+    Name: 'Mckenna Friesen',
+    address: 'New York',
+  },
+  {
+    Name: 'Janick Willms',
+    address: 'Nebraska',
+  },
 ];
 
 export const address = [
