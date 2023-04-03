@@ -86,7 +86,57 @@ const Site = () => {
     [validationErrors],
   );
 
-  const columns = useMemo(
+  const formColumns = useMemo(
+    () => [
+      {
+        accessorKey: 'Name',
+        header: 'Name',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'abbreviationName',
+        header: 'Abbreviation Name',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'primaryGroup',
+        header: 'Primary Group',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'primaryLanguage',
+        header: 'Primary Language',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'address',
+        header: 'Address',
+        muiTableBodyCellEditTextFieldProps: {
+          select: true, // add select property for dropdown
+          children: address.map((address) => (
+            <MenuItem key={address} value={address}>
+              {address}
+            </MenuItem>
+          )),
+        },
+      },
+    ],
+    [getCommonEditTextFieldProps, address] // include address in dependencies array
+  );
+
+  const tableColumns = useMemo(
     () => [
       {
         accessorKey: 'Name',
@@ -100,7 +150,7 @@ const Site = () => {
         accessorKey: 'address',
         header: 'Address',
         muiTableBodyCellEditTextFieldProps: {
-          select: true, //change to select for a dropdown
+          select: true, // add select property for dropdown
           children: address.map((address) => (
             <MenuItem key={address} value={address}>
               {address}
@@ -109,8 +159,10 @@ const Site = () => {
         },
       },
     ],
-    [getCommonEditTextFieldProps],
+    [getCommonEditTextFieldProps, address] // include address in dependencies array
   );
+
+  
 
   return (
     <>
@@ -123,7 +175,7 @@ const Site = () => {
             size: 120,
           },
         }}
-        columns={columns}
+        columns={tableColumns}
         data={tableData}
         editingMode="modal" //default
         enableColumnOrdering
@@ -134,7 +186,7 @@ const Site = () => {
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
             <Tooltip arrow placement="right" title="Edit">
               <IconButton color="warning" onClick={() => table.setEditingRow(row)}>
-                <Edit />
+                <Edit/>
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Delete">
@@ -174,18 +226,18 @@ const Site = () => {
           </Box>
         )}
       />
-      <CreateNewAccountModal
-        columns={columns}
+      <CreateNewSite
+        columns={formColumns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
         onSubmit={handleCreateNewRow}
       />
-    </>
+      </>
   );
 };
 
 //example of creating a mui dialog modal for creating new rows
-export const CreateNewAccountModal = ({ open, columns, onClose, onSubmit }) => {
+export const CreateNewSite = ({ open, columns, onClose, onSubmit }) => {
   const [values, setValues] = useState(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ''] = '';
