@@ -202,6 +202,7 @@ export default function Navigation() {
   
               {/* SITE */}
              <Divider />
+             <List>
               <NavLink to="/">
                 <ListItem  key={"Site"} disablePadding sx={{ display: 'block'}} >
                   <ListItemButton
@@ -224,9 +225,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
 
               {/* POWERPLANT */}
              <Divider />
+             <List>
              <NavLink to="/powerplant">
                 <ListItem key={"Powerplant"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -249,9 +252,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
 
               {/* POWERPLANT TYPES*/}
              <Divider />
+             <List>
              <NavLink to="/powerplant/types">
                 <ListItem key={"Powerplant Types"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -274,9 +279,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
 
               {/* Manage Protocols */}
              <Divider />
+             <List>
              <NavLink to="/protocols/manage">
                 <ListItem key={"Manage Protocols"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -299,9 +306,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
 
               {/* Templates */}
              <Divider />
+             <List>
              <NavLink to="/templates">
                 <ListItem key={"Templates"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -324,9 +333,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
 
               {/* Variants */}
              <Divider />
+             <List>
               <NavLink to="/variants">
                 <ListItem key={"Variants"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -349,9 +360,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
               
               {/* Item Type Definition */}
              <Divider />
+             <List>
              <NavLink to="/item/type">
                 <ListItem key={"Item Type Definition"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -374,9 +387,36 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
+
+             <List>
+             <NavLink to="/item/type">
+                <ListItem key={"Item Type Definition"} disablePadding sx={{ display: 'block' }}>
+                  <ListItemButton
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? 'initial' : 'center',
+                      px: 2.5,
+                    }}
+                  >
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : 'auto',
+                        justifyContent: 'center',
+                      }}
+                    >
+                    <ClassIcon /> 
+                    </ListItemIcon>
+                    <ListItemText primary={"Item Type Definition"} sx={{ opacity: open ? 1 : 0 }} />
+                  </ListItemButton>
+                </ListItem>
+              </NavLink>
+             </List>
 
               {/* Users */}
              <Divider />
+             <List>
              <NavLink to="/users">
                 <ListItem key={"Users"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -399,9 +439,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
 
               {/* Groups */}
              <Divider />
+             <List>
              <NavLink to="/groups">
                 <ListItem key={"Groups"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -424,9 +466,12 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
+
 
               {/* Feedback */}
              <Divider />
+             <List>
              <NavLink to="/feedback">
                 <ListItem key={"Feedback"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -449,9 +494,11 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
               </NavLink>
+             </List>
 
               {/* Profile */}
              <Divider />
+             <List>
              <NavLink to="/profile">
                 <ListItem key={"Profile"} disablePadding sx={{ display: 'block' }}>
                   <ListItemButton
@@ -474,6 +521,7 @@ export default function Navigation() {
                   </ListItemButton>
                 </ListItem>
              </NavLink>
+             </List>
 
         </List>
       </Drawer>
