@@ -363,32 +363,7 @@ export default function Navigation() {
              </List>
               
               {/* Item Type Definition */}
-             <Divider />
-             <List>
-             <NavLink to="/item/type">
-                <ListItem key={"Item Type Definition"} disablePadding sx={{ display: 'block' }}>
-                  <ListItemButton
-                    sx={{
-                      minHeight: 48,
-                      justifyContent: open ? 'initial' : 'center',
-                      px: 2.5,
-                    }}
-                  >
-                    <ListItemIcon
-                      sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : 'auto',
-                        justifyContent: 'center',
-                      }}
-                    >
-                    <ClassIcon /> 
-                    </ListItemIcon>
-                    <ListItemText primary={"Item Type Definition"} sx={{ opacity: open ? 1 : 0 }} />
-                  </ListItemButton>
-                </ListItem>
-              </NavLink>
-             </List>
-
+            <Divider/>
              <List>
              <NavLink to="/item/type">
                 <ListItem key={"Item Type Definition"} disablePadding sx={{ display: 'block' }}>
@@ -467,7 +442,6 @@ export default function Navigation() {
                 </ListItem>
               </NavLink>
              </List>
-
 
               {/* Feedback */}
              <Divider />
