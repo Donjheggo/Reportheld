@@ -219,7 +219,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <LocationOnIcon/> 
+                    <LocationOnIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Site"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -246,7 +246,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <FactoryIcon /> 
+                    <FactoryIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Powerplant"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -273,7 +273,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <InboxIcon /> 
+                    <InboxIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Powerplant Types"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -300,7 +300,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <AccountTreeIcon /> 
+                    <AccountTreeIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Manage Protocols"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -327,7 +327,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <ViewListIcon /> 
+                    <ViewListIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Templates"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -354,7 +354,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <WorkspacesIcon /> 
+                    <WorkspacesIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Variants"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -381,7 +381,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <ClassIcon /> 
+                    <ClassIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Item Type Definition"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -408,7 +408,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <Groups2Icon /> 
+                    <Groups2Icon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Users"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -435,7 +435,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <Diversity3Icon /> 
+                    <Diversity3Icon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Groups"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -462,7 +462,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <RateReviewIcon /> 
+                    <RateReviewIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Feedback"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
@@ -489,7 +489,7 @@ export default function Navigation() {
                         justifyContent: 'center',
                       }}
                     >
-                    <AccountBoxIcon /> 
+                    <AccountBoxIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
                     <ListItemText primary={"Profile"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
