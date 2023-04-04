@@ -34,6 +34,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Box from "@mui/material/Box";
 
 import logo from "/images/swbt_logo.png"
 
@@ -155,7 +156,8 @@ export default function Navigation() {
             Reportheld
           </Typography>
           <SignalCellularAltIcon style={{ marginLeft: '8px' }}/>
-
+          <Box sx={{marginLeft: 'auto', display: 'flex', alignItems: 'center'}}>
+          <Typography>Admin |</Typography>
           <IconButton
             size="large"
             aria-label="account of current user"
@@ -163,11 +165,12 @@ export default function Navigation() {
             aria-haspopup="true"
             onClick={handleMenu}
             color="inherit"
-            sx={{marginLeft: 'auto'}}
           >
-          <AccountCircle />
+            <AccountCircle />
           </IconButton>
-
+          </Box>
+          
+        
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
