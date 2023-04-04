@@ -87,6 +87,30 @@ const ManageProtocols = () => {
         }),
       },
       {
+        accessorKey: 'basedOn',
+        header: 'Based On',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'date',
+        header: 'Date',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'owner',
+        header: 'Owner',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
         accessorKey: 'code',
         header: 'Code',
         size: 140,
