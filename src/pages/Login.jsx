@@ -27,6 +27,7 @@ function Copyright(props) {
 const Login = () => {
   const navigate = useNavigate()
   const handleSubmit = (event) => {
+    navigate("/site")
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const { email, password} = Object.fromEntries(
