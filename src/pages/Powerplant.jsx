@@ -17,6 +17,7 @@ import Groups2Icon from '@mui/icons-material/Groups2';
 import FactoryIcon from '@mui/icons-material/Factory';
 import { Delete, Edit } from '@mui/icons-material';
 import { data, address } from '../data/mockData';
+import FormControl from '@mui/material/FormControl';
 
 const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -89,7 +90,7 @@ const Site = () => {
   const formColumns = useMemo(
     () => [
       {
-        accessorKey: 'Name',
+        accessorKey: 'name',
         header: 'Name',
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -97,50 +98,70 @@ const Site = () => {
         }),
       },
       {
-        accessorKey: 'abbreviationName',
-        header: 'Abbreviation Name',
+        accessorKey: 'code',
+        header: 'Code',
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'primaryGroup',
-        header: 'Primary Group',
+        accessorKey: 'site',
+        header: 'Site',
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'primaryLanguage',
-        header: 'Primary Language',
-        size: 140,
-        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
-          ...getCommonEditTextFieldProps(cell),
-        }),
+        accessorKey: 'image',
+        header: 'Image',
+        muiTableBodyCellEdit: {
+          cellEditType: 'imageUpload',
+          onUpload: (file) => handleImageUpload(file),
+        },
       },
       {
-        accessorKey: 'address',
-        header: 'Address',
-        muiTableBodyCellEditTextFieldProps: {
-          select: true, // add select property for dropdown
-          children: address.map((address) => (
-            <MenuItem key={address} value={address}>
-              {address}
-            </MenuItem>
-          )),
+        accessorKey: 'thumbnail',
+        header: 'Thumbnail Image',
+        muiTableBodyCellEdit: {
+          cellEditType: 'imageUpload',
+          onUpload: (file) => handleImageUpload(file),
+        },
+      },
+      {
+        accessorKey: 'responsibilities',
+        header: 'Responsibilities',
+        muiTableBodyCellEdit: {
+          cellEditType: 'imageUpload',
+          onUpload: (file) => handleImageUpload(file),
         },
       },
     ],
-    [getCommonEditTextFieldProps, address] // include address in dependencies array
+    [getCommonEditTextFieldProps] 
   );
 
   const tableColumns = useMemo(
     () => [
       {
-        accessorKey: 'Name',
+        accessorKey: 'name',
         header: 'Name',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'code',
+        header: 'Code',
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: 'site',
+        header: 'Site',
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -159,7 +180,7 @@ const Site = () => {
         },
       },
     ],
-    [getCommonEditTextFieldProps, address] // include address in dependencies array
+    [getCommonEditTextFieldProps] 
   );
 
   
@@ -226,7 +247,7 @@ const Site = () => {
           </Box>
         )}
       />
-      <CreateNewSite
+      <CreateNewPowerPlant
         columns={formColumns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
@@ -237,7 +258,7 @@ const Site = () => {
 };
 
 //example of creating a mui dialog modal for creating new rows
-export const CreateNewSite = ({ open, columns, onClose, onSubmit }) => {
+export const CreateNewPowerPlant = ({ open, columns, onClose, onSubmit }) => {
   const [values, setValues] = useState(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ''] = '';

@@ -89,7 +89,7 @@ const Site = () => {
   const formColumns = useMemo(
     () => [
       {
-        accessorKey: 'Name',
+        accessorKey: 'name',
         header: 'Name',
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -139,7 +139,7 @@ const Site = () => {
   const tableColumns = useMemo(
     () => [
       {
-        accessorKey: 'Name',
+        accessorKey: 'name',
         header: 'Name',
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
@@ -159,7 +159,7 @@ const Site = () => {
         },
       },
     ],
-    [getCommonEditTextFieldProps, address] // include address in dependencies array
+    [getCommonEditTextFieldProps] 
   );
 
   
