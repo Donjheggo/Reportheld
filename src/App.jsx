@@ -15,9 +15,14 @@ import Users from "./pages/Users"
 import Groups from "./pages/Groups"
 import Feedback from "./pages/Feedback"
 import Profile from "./pages/Profile"
-
+import LoginPage from "./pages/Login"
+import AuthLayout from "./components/AuthLayout"
 
 const router = createBrowserRouter(createRoutesFromElements(
+  <>
+  <Route path='/login' element={<AuthLayout/>}>
+    <Route index element={<LoginPage/>}/>
+  </Route>
   <Route path="/" element={<MainLayout/>}>
     <Route index element={<Site/>}/>
     <Route path="/powerplant" element={<Powerplant/>}/>
@@ -32,6 +37,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/feedback" element={<Feedback/>}/>
     <Route path="/profile" element={<Profile/>}/>
   </Route>
+  </>
 ))
 
 const App = () => {
