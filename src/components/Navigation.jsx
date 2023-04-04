@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 //////// MUI //////////////////
 import { styled, useTheme, createTheme, ThemeProvider, } from '@mui/material/styles';
@@ -108,6 +108,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Navigation() {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -126,6 +127,10 @@ export default function Navigation() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const logout = () => {
+    navigate("/")
+  }
 
   return (
     <>
@@ -187,7 +192,7 @@ export default function Navigation() {
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
           
         </Toolbar>
