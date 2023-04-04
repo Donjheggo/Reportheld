@@ -165,7 +165,6 @@ const Site = () => {
   return (
     <>
       <MaterialReactTable
-        title="Test Title"
         displayColumnDefOptions={{
           "mrt-row-actions": {
             muiTableHeadCellProps: {
