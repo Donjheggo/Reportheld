@@ -20,11 +20,11 @@ import AuthLayout from "./components/AuthLayout"
 
 const router = createBrowserRouter(createRoutesFromElements(
   <>
-  <Route path='/login' element={<AuthLayout/>}>
+  <Route path='/' element={<AuthLayout/>}>
     <Route index element={<LoginPage/>}/>
   </Route>
-  <Route path="/" element={<MainLayout/>}>
-    <Route index element={<Site/>}/>
+  <Route element={<MainLayout/>}>
+    <Route path="/site" element={<Site/>}/>
     <Route path="/powerplant" element={<Powerplant/>}/>
     <Route path="/powerplant/types" element={<PowerplantTypes/>}/>
     <Route path="/protocols/manage" element={<ManageProtocols/>}/>

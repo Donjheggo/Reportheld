@@ -206,7 +206,7 @@ export default function Navigation() {
               {/* SITE */}
              <Divider />
              <List>
-              <NavLink to="/">
+              <NavLink to="/site">
                 <ListItem  key={"Site"} disablePadding sx={{ display: 'block'}} >
                   <ListItemButton
                     sx={{
