@@ -202,6 +202,7 @@ const Site = () => {
         data={tableData}
         editingMode="modal" //default
         enableColumnOrdering
+        enableGrouping
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
