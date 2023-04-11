@@ -1,21 +1,13 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import MaterialReactTable from 'material-react-table';
-import {
-  Box,
-  Button,
-  IconButton,
-  MenuItem,
-  Tooltip,
-  Typography,
-} from '@mui/material';
-import Groups2Icon from '@mui/icons-material/Groups2';
-import FactoryIcon from '@mui/icons-material/Factory';
-import { Delete, Edit } from '@mui/icons-material';
-import { data, address } from '../data/mockData';
-
+import React, { useCallback, useMemo, useState } from "react";
+import MaterialReactTable from "material-react-table";
+import { Box, IconButton, Tooltip, Grid, Typography } from "@mui/material";
+import { Delete, Edit } from "@mui/icons-material";
+import { manageProtocolData } from "../data/mockData";
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import LockIcon from '@mui/icons-material/Lock';
 
 const ManageProtocols = () => {
-  const [tableData, setTableData] = useState(() => data);
+  const [tableData, setTableData] = useState(() => manageProtocolData);
   const [validationErrors, setValidationErrors] = useState({});
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
@@ -33,16 +25,14 @@ const ManageProtocols = () => {
 
   const handleDeleteRow = useCallback(
     (row) => {
-      if (
-        !confirm(`Are you sure you want to delete ${row.getValue('Name')}`)
-      ) {
+      if (!confirm(`Are you sure you want to delete ${row.getValue("Name")}`)) {
         return;
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
       setTableData([...tableData]);
     },
-    [tableData],
+    [tableData]
   );
 
   const getCommonEditTextFieldProps = useCallback(
@@ -52,9 +42,9 @@ const ManageProtocols = () => {
         helperText: validationErrors[cell.id],
         onBlur: (event) => {
           const isValid =
-            cell.column.id === 'email'
+            cell.column.id === "email"
               ? validateEmail(event.target.value)
-              : cell.column.id === 'age'
+              : cell.column.id === "age"
               ? validateAge(+event.target.value)
               : validateRequired(event.target.value);
           if (!isValid) {
@@ -73,82 +63,73 @@ const ManageProtocols = () => {
         },
       };
     },
-    [validationErrors],
+    [validationErrors]
   );
 
   const tableColumns = useMemo(
     () => [
       {
-        accessorKey: 'name',
-        header: 'Name',
+        accessorKey: "location",
+        header: "Location",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'basedOn',
-        header: 'Based On',
+        accessorKey: "name",
+        header: "Name",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'date',
-        header: 'Date',
+        accessorKey: "basedOn",
+        header: "Based On",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'owner',
-        header: 'Owner',
+        accessorKey: "date",
+        header: "Date",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'code',
-        header: 'Code',
+        accessorKey: "owner",
+        header: "Owner",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'site',
-        header: 'Site',
+        accessorKey: "lockStatus",
+        header: "Status",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
-      },
-      {
-        accessorKey: 'address',
-        header: 'Address',
-        muiTableBodyCellEditTextFieldProps: {
-          select: true, // add select property for dropdown
-          children: address.map((address) => (
-            <MenuItem key={address} value={address}>
-              {address}
-            </MenuItem>
-          )),
+        Cell: ({ cell }) => {
+          return cell.value ? <LockIcon/> : <LockOpenIcon/>;
         },
       },
     ],
-    [getCommonEditTextFieldProps] 
+    [getCommonEditTextFieldProps]
   );
 
   return (
     <>
       <MaterialReactTable
         displayColumnDefOptions={{
-          'mrt-row-actions': {
+          "mrt-row-actions": {
             muiTableHeadCellProps: {
-              align: 'center',
+              align: "center",
             },
             size: 120,
           },
@@ -162,10 +143,13 @@ const ManageProtocols = () => {
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
         renderRowActions={({ row, table }) => (
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+          <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">
-              <IconButton color="warning" onClick={() => table.setEditingRow(row)}>
-                <Edit/>
+              <IconButton
+                color="warning"
+                onClick={() => table.setEditingRow(row)}
+              >
+                <Edit />
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Delete">
@@ -173,39 +157,18 @@ const ManageProtocols = () => {
                 <Delete />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="right" title="Powerplants">
-              <Button color="secondary" onClick={() => {alert("Navigate to Powerplant")}}>
-                <FactoryIcon/>
-              </Button>
-            </Tooltip>
-            <Tooltip arrow placement="right" title="Edit Groups">
-              <Button color="success" onClick={() => {alert("Navigate to groups")}}>
-                <Groups2Icon/>
-              </Button>
-            </Tooltip>
           </Box>
         )}
         renderTopToolbarCustomActions={() => (
-          <Box sx={{ display: 'flex', gap: '1rem', p: '4px' }}>
-            <Typography variant='h5'>
-              Manage Protocols
-            </Typography>
+          <Box sx={{ paddingLeft: "10px" }}>
+            <Grid item xs={12} sm={12} xl={12} lg={12}>
+              <Typography variant="h5">Manage Protocols</Typography>
+            </Grid>
           </Box>
         )}
       />
-      </>
+    </>
   );
 };
-
-
-const validateRequired = (value) => !!value.length;
-const validateEmail = (email) =>
-  !!email.length &&
-  email
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    );
-const validateAge = (age) => age >= 18 && age <= 50;
 
 export default ManageProtocols;

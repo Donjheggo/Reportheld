@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import MaterialReactTable from 'material-react-table';
+import React, { useCallback, useMemo, useState } from "react";
+import MaterialReactTable from "material-react-table";
 import {
   Box,
   Button,
@@ -13,17 +13,16 @@ import {
   TextField,
   Tooltip,
   Grid,
-  Typography
-} from '@mui/material';
-import Groups2Icon from '@mui/icons-material/Groups2';
-import FactoryIcon from '@mui/icons-material/Factory';
-import { Delete, Edit } from '@mui/icons-material';
-import { data, address } from '../data/mockData';
-import FormControl from '@mui/material/FormControl';
+  Typography,
+} from "@mui/material";
+import Groups2Icon from "@mui/icons-material/Groups2";
+import FactoryIcon from "@mui/icons-material/Factory";
+import { Delete, Edit } from "@mui/icons-material";
+import { powerplantData, address } from "../data/mockData";
 
 const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState(() => data);
+  const [tableData, setTableData] = useState(() => powerplantData);
   const [validationErrors, setValidationErrors] = useState({});
 
   const handleCreateNewRow = (values) => {
@@ -46,16 +45,14 @@ const Site = () => {
 
   const handleDeleteRow = useCallback(
     (row) => {
-      if (
-        !confirm(`Are you sure you want to delete ${row.getValue('Name')}`)
-      ) {
+      if (!confirm(`Are you sure you want to delete ${row.getValue("Name")}`)) {
         return;
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
       setTableData([...tableData]);
     },
-    [tableData],
+    [tableData]
   );
 
   const getCommonEditTextFieldProps = useCallback(
@@ -65,9 +62,9 @@ const Site = () => {
         helperText: validationErrors[cell.id],
         onBlur: (event) => {
           const isValid =
-            cell.column.id === 'email'
+            cell.column.id === "email"
               ? validateEmail(event.target.value)
-              : cell.column.id === 'age'
+              : cell.column.id === "age"
               ? validateAge(+event.target.value)
               : validateRequired(event.target.value);
           if (!isValid) {
@@ -86,92 +83,92 @@ const Site = () => {
         },
       };
     },
-    [validationErrors],
+    [validationErrors]
   );
 
   const formColumns = useMemo(
     () => [
       {
-        accessorKey: 'name',
-        header: 'Name',
+        accessorKey: "name",
+        header: "Name",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'code',
-        header: 'Code',
+        accessorKey: "code",
+        header: "Code",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'site',
-        header: 'Site',
+        accessorKey: "site",
+        header: "Site",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'image',
-        header: 'Image',
+        accessorKey: "image",
+        header: "Image",
         muiTableBodyCellEdit: {
-          cellEditType: 'imageUpload',
+          cellEditType: "imageUpload",
           onUpload: (file) => handleImageUpload(file),
         },
       },
       {
-        accessorKey: 'thumbnail',
-        header: 'Thumbnail Image',
+        accessorKey: "thumbnail",
+        header: "Thumbnail Image",
         muiTableBodyCellEdit: {
-          cellEditType: 'imageUpload',
+          cellEditType: "imageUpload",
           onUpload: (file) => handleImageUpload(file),
         },
       },
       {
-        accessorKey: 'responsibilities',
-        header: 'Responsibilities',
+        accessorKey: "responsibilities",
+        header: "Responsibilities",
         muiTableBodyCellEdit: {
-          cellEditType: 'imageUpload',
+          cellEditType: "imageUpload",
           onUpload: (file) => handleImageUpload(file),
         },
       },
     ],
-    [getCommonEditTextFieldProps] 
+    [getCommonEditTextFieldProps]
   );
 
   const tableColumns = useMemo(
     () => [
       {
-        accessorKey: 'name',
-        header: 'Name',
+        accessorKey: "name",
+        header: "Name",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'code',
-        header: 'Code',
+        accessorKey: "code",
+        header: "Code",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'site',
-        header: 'Site',
+        accessorKey: "site",
+        header: "Site",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: 'address',
-        header: 'Address',
+        accessorKey: "address",
+        header: "Address",
         muiTableBodyCellEditTextFieldProps: {
           select: true, // add select property for dropdown
           children: address.map((address) => (
@@ -182,18 +179,16 @@ const Site = () => {
         },
       },
     ],
-    [getCommonEditTextFieldProps] 
+    [getCommonEditTextFieldProps]
   );
-
-  
 
   return (
     <>
       <MaterialReactTable
         displayColumnDefOptions={{
-          'mrt-row-actions': {
+          "mrt-row-actions": {
             muiTableHeadCellProps: {
-              align: 'center',
+              align: "center",
             },
             size: 120,
           },
@@ -207,10 +202,13 @@ const Site = () => {
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
         renderRowActions={({ row, table }) => (
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+          <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">
-              <IconButton color="warning" onClick={() => table.setEditingRow(row)}>
-                <Edit/>
+              <IconButton
+                color="warning"
+                onClick={() => table.setEditingRow(row)}
+              >
+                <Edit />
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Delete">
@@ -219,24 +217,34 @@ const Site = () => {
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Powerplants">
-              <Button color="secondary" onClick={() => {alert("Navigate to Powerplant")}}>
-                <FactoryIcon/>
+              <Button
+                color="secondary"
+                onClick={() => {
+                  alert("Navigate to Powerplant");
+                }}
+              >
+                <FactoryIcon />
               </Button>
             </Tooltip>
             <Tooltip arrow placement="right" title="Edit Groups">
-              <Button color="success" onClick={() => {alert("Navigate to groups")}}>
-                <Groups2Icon/>
+              <Button
+                color="success"
+                onClick={() => {
+                  alert("Navigate to groups");
+                }}
+              >
+                <Groups2Icon />
               </Button>
             </Tooltip>
           </Box>
         )}
         renderTopToolbarCustomActions={() => (
-          <Box sx={{paddingLeft: '10px'}}>
+          <Box sx={{ paddingLeft: "10px" }}>
             <Grid item xs={12} sm={12} xl={12} lg={12}>
               <Typography variant="h5">Powerplant</Typography>
             </Grid>
             <Grid item xs={12} sm={6} xl={6} lg={6}>
-              <Box sx={{ display: "flex", gap: "1rem", paddingTop: '10px'}}>
+              <Box sx={{ display: "flex", gap: "1rem", paddingTop: "10px" }}>
                 <Button
                   style={{ backgroundColor: "#99cc33" }}
                   onClick={() => setCreateModalOpen(true)}
@@ -255,7 +263,7 @@ const Site = () => {
         onClose={() => setCreateModalOpen(false)}
         onSubmit={handleCreateNewRow}
       />
-      </>
+    </>
   );
 };
 
@@ -263,9 +271,9 @@ const Site = () => {
 export const CreateNewPowerPlant = ({ open, columns, onClose, onSubmit }) => {
   const [values, setValues] = useState(() =>
     columns.reduce((acc, column) => {
-      acc[column.accessorKey ?? ''] = '';
+      acc[column.accessorKey ?? ""] = "";
       return acc;
-    }, {}),
+    }, {})
   );
 
   const handleSubmit = () => {
@@ -281,9 +289,9 @@ export const CreateNewPowerPlant = ({ open, columns, onClose, onSubmit }) => {
         <form onSubmit={(e) => e.preventDefault()}>
           <Stack
             sx={{
-              width: '100%',
-              minWidth: { xs: '300px', sm: '360px', md: '400px' },
-              gap: '1.5rem',
+              width: "100%",
+              minWidth: { xs: "300px", sm: "360px", md: "400px" },
+              gap: "1.5rem",
             }}
           >
             {columns.map((column) => (
@@ -299,8 +307,10 @@ export const CreateNewPowerPlant = ({ open, columns, onClose, onSubmit }) => {
           </Stack>
         </form>
       </DialogContent>
-      <DialogActions sx={{ p: '1.25rem' }}>
-        <Button onClick={onClose} color="error">Cancel</Button>
+      <DialogActions sx={{ p: "1.25rem" }}>
+        <Button onClick={onClose} color="error">
+          Cancel
+        </Button>
         <Button color="primary" onClick={handleSubmit} variant="contained">
           Save
         </Button>
@@ -315,7 +325,7 @@ const validateEmail = (email) =>
   email
     .toLowerCase()
     .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 const validateAge = (age) => age >= 18 && age <= 50;
 

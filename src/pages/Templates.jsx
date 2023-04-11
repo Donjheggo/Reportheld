@@ -15,14 +15,12 @@ import {
   Typography,
   Grid
 } from "@mui/material";
-import Groups2Icon from "@mui/icons-material/Groups2";
-import FactoryIcon from "@mui/icons-material/Factory";
 import { Delete, Edit } from "@mui/icons-material";
-import { data, address } from "../data/mockData";
+import { siteData, address } from "../data/mockData";
 
 const Templates = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState(() => data);
+  const [tableData, setTableData] = useState(() => siteData);
   const [validationErrors, setValidationErrors] = useState({});
 
   const handleCreateNewRow = (values) => {
@@ -196,26 +194,7 @@ const Templates = () => {
                 <Delete />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow placement="right" title="Powerplants">
-              <Button
-                color="secondary"
-                onClick={() => {
-                  alert("Navigate to Powerplant");
-                }}
-              >
-                <FactoryIcon />
-              </Button>
-            </Tooltip>
-            <Tooltip arrow placement="right" title="Edit Groups">
-              <Button
-                color="success"
-                onClick={() => {
-                  alert("Navigate to groups");
-                }}
-              >
-                <Groups2Icon />
-              </Button>
-            </Tooltip>
+           
           </Box>
         )}
         renderTopToolbarCustomActions={() => (
@@ -230,24 +209,14 @@ const Templates = () => {
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >
-                  CREATE SITE
-                </Button>
-                <Button
-                  style={{ backgroundColor: "gray" }}
-                  color="warning"
-                  onClick={() => {
-                    console.log("test");
-                  }}
-                  variant="contained"
-                >
-                  FIX PERMISSIONS
+                  CREATE Template
                 </Button>
               </Box>
             </Grid>
           </Box>
         )}
       />
-      <CreateNewSite
+      <CreateNewTemplate
         columns={formColumns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
@@ -258,7 +227,7 @@ const Templates = () => {
 };
 
 //example of creating a mui dialog modal for creating new rows
-export const CreateNewSite = ({ open, columns, onClose, onSubmit }) => {
+export const CreateNewTemplate = ({ open, columns, onClose, onSubmit }) => {
   const [values, setValues] = useState(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ""] = "";

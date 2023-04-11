@@ -18,11 +18,11 @@ import {
 import Groups2Icon from "@mui/icons-material/Groups2";
 import FactoryIcon from "@mui/icons-material/Factory";
 import { Delete, Edit } from "@mui/icons-material";
-import { data, address } from "../data/mockData";
+import { siteData, address } from "../data/mockData";
 
 const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState(() => data);
+  const [tableData, setTableData] = useState(() => siteData);
   const [validationErrors, setValidationErrors] = useState({});
 
   const handleCreateNewRow = (values) => {
