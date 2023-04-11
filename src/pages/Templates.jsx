@@ -16,11 +16,11 @@ import {
   Grid
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
-import { siteData, address } from "../data/mockData";
+import { templatesData } from "../data/mockData";
 
 const Templates = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
-  const [tableData, setTableData] = useState(() => siteData);
+  const [tableData, setTableData] = useState(() => templatesData);
   const [validationErrors, setValidationErrors] = useState({});
 
   const handleCreateNewRow = (values) => {
@@ -87,75 +87,76 @@ const Templates = () => {
   const formColumns = useMemo(
     () => [
       {
-        accessorKey: "name",
-        header: "Name",
+        accessorKey: "category",
+        header: "Category",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: "abbreviationName",
-        header: "Abbreviation Name",
+        accessorKey: "items",
+        header: "Items",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: "primaryGroup",
-        header: "Primary Group",
+        accessorKey: "protocols",
+        header: "Protocols",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: "primaryLanguage",
-        header: "Primary Language",
+        accessorKey: "accountType",
+        header: "Account",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
-      },
-      {
-        accessorKey: "address",
-        header: "Address",
-        muiTableBodyCellEditTextFieldProps: {
-          select: true, // add select property for dropdown
-          children: address.map((address) => (
-            <MenuItem key={address} value={address}>
-              {address}
-            </MenuItem>
-          )),
-        },
       },
     ],
-    [getCommonEditTextFieldProps, address] // include address in dependencies array
+    [getCommonEditTextFieldProps] 
   );
 
   const tableColumns = useMemo(
     () => [
       {
-        accessorKey: "name",
-        header: "Name",
+        accessorKey: "category",
+        header: "Category",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
         }),
       },
       {
-        accessorKey: "address",
-        header: "Address",
-        muiTableBodyCellEditTextFieldProps: {
-          select: true, // add select property for dropdown
-          children: address.map((address) => (
-            <MenuItem key={address} value={address}>
-              {address}
-            </MenuItem>
-          )),
-        },
+        accessorKey: "items",
+        header: "Items",
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
       },
+      {
+        accessorKey: "protocols",
+        header: "Protocols",
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
+        accessorKey: "accountType",
+        header: "Account",
+        size: 140,
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+
     ],
     [getCommonEditTextFieldProps]
   );
@@ -176,6 +177,9 @@ const Templates = () => {
         editingMode="modal" //default
         enableColumnOrdering
         enableGrouping
+        initialState={{
+          grouping: ['category']
+        }}
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}

@@ -221,6 +221,106 @@ export const variantsData = [
   },
 ];
 
+export const templatesData = [
+  {
+    category: 'Base job Template v.1',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Base job Template v.1',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Gas',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Gas',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Gas und Wasser',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Gas und Wasser',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Netzleitstelle',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Netzleitstelle',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'SNH',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'SNH',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Strom',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Strom',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Unassigned',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Unassigned',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Wasser',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+  {
+    category: 'Wasser',
+    items: '6 Topics / 6 Items',
+    protocols: '0 Protocols',
+    accountType: 'swbt Stadtwerke Bayreuth Administration',
+  },
+
+]
+
 export const address = [
   "Alabama",
   "Alaska",
