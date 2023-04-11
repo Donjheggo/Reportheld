@@ -213,14 +213,14 @@ const Templates = () => {
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >
-                  CREATE Template
+                  CREATE
                 </Button>
                 <Button
                   style={{ backgroundColor: "gray" }}
                   onClick={() => alert("Import Template")}
                   variant="contained"
                 >
-                  Import Template
+                  Import
                 </Button>
               </Box>
               

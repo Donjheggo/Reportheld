@@ -179,7 +179,7 @@ const Variants = () => {
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >
-                  CREATE Variant
+                  CREATE
                 </Button>
               </Box>
             </Grid>

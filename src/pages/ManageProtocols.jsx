@@ -116,7 +116,7 @@ const ManageProtocols = () => {
           ...getCommonEditTextFieldProps(cell),
         }),
         Cell: ({ cell }) => {
-          return cell.value ? <LockIcon/> : <LockOpenIcon/>;
+          return cell ? <LockIcon/> : <LockOpenIcon/>;
         },
       },
     ],

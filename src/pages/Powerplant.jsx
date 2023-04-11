@@ -250,7 +250,7 @@ const Site = () => {
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >
-                  CREATE POWERPLANT
+                  CREATE
                 </Button>
               </Box>
             </Grid>

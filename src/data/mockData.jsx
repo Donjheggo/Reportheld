@@ -321,6 +321,70 @@ export const templatesData = [
 
 ]
 
+
+export const ItemTypeData = [
+  {
+    itemType: 'affectedAreaMRI',
+    version: '4',
+    numberOfProperties: '1',
+    available: true,
+  },
+  {
+    itemType: 'affectedAreaMRI',
+    version: '3',
+    numberOfProperties: '1',
+    available: true,
+  },
+  {
+    itemType: 'affectedAreaMRI',
+    version: '2',
+    numberOfProperties: '3',
+    available: true,
+  },
+  {
+    itemType: 'affectedAreaMRI',
+    version: '1',
+    numberOfProperties: '1',
+    available: true,
+  },
+  {
+    itemType: 'affectedAreaMRI',
+    version: '5',
+    numberOfProperties: '6',
+    available: true,
+  },
+  {
+    itemType: 'catalogItemAktivierungen',
+    version: '4',
+    numberOfProperties: '1',
+    available: true,
+  },
+  {
+    itemType: 'catalogItemAktivierungen',
+    version: '3',
+    numberOfProperties: '1',
+    available: true,
+  },
+  {
+    itemType: 'catalogItemAktivierungen',
+    version: '2',
+    numberOfProperties: '3',
+    available: true,
+  },
+  {
+    itemType: 'catalogItemAktivierungen',
+    version: '1',
+    numberOfProperties: '1',
+    available: true,
+  },
+  {
+    itemType: 'catalogItemAktivierungen',
+    version: '5',
+    numberOfProperties: '6',
+    available: true,
+  },
+]
+
 export const address = [
   "Alabama",
   "Alaska",

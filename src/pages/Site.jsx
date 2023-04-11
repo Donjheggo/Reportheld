@@ -230,7 +230,7 @@ const Site = () => {
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >
-                  CREATE SITE
+                  CREATE
                 </Button>
                 <Button
                   style={{ backgroundColor: "gray" }}
