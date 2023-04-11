@@ -215,7 +215,15 @@ const Templates = () => {
                 >
                   CREATE Template
                 </Button>
+                <Button
+                  style={{ backgroundColor: "gray" }}
+                  onClick={() => alert("Import Template")}
+                  variant="contained"
+                >
+                  Import Template
+                </Button>
               </Box>
+              
             </Grid>
           </Box>
         )}
