@@ -16,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";;
 import { Delete, Edit } from "@mui/icons-material";
-import { feedbackData, address } from "../data/mockData";
+import { feedbackData } from "../data/mockData";
 
 const Feedback = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
