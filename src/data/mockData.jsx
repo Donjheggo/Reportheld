@@ -457,6 +457,34 @@ export const groupsData = [
   },
 ]
 
+export const feedbackData = [
+  {
+    date: '17.07.2019 06:29',
+    user: 'michael.schmidt',
+    sent: true
+  },
+  {
+    date: '12.03.2019 06:29',
+    user: 'stefan.schuetze',
+    sent: true
+  },
+  {
+    date: '11.07.2019 06:29',
+    user: 'perschon',
+    sent: true
+  },
+  {
+    date: '18.17.2019 06:29',
+    user: 'becker',
+    sent: true
+  },
+    {
+    date: '05.03.2019 06:29',
+    user: 'jung',
+    sent: true
+  },
+]
+
 export const address = [
   "Alabama",
   "Alaska",
