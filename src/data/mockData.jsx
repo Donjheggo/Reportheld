@@ -385,6 +385,50 @@ export const ItemTypeData = [
   },
 ]
 
+export const usersData = [
+  {
+    username: 'aaron.giptner@stadtwerke-bayreuth.de',
+    firstName: 'Aaron',
+    lastName: 'Giptner',
+    primaryGroup: 'Netzleitstelle',
+    email: 'aaron.giptner@stadtwerke-bayreuth.de',
+    phone: '',
+  },
+  {
+    username: 'swbt-admin',
+    firstName: 'Admin',
+    lastName: 'GroupXS',
+    primaryGroup: 'Stadtwerke Bayreuth Administration',
+    email: '',
+    phone: '',
+  },
+  {
+    username: 'swbt-it-admin',
+    firstName: 'Admin',
+    lastName: 'SWBT',
+    primaryGroup: 'Netzleitstelle',
+    email: '',
+    phone: '',
+  },
+
+  {
+    username: 'alexander.knauer@stadtwerke-bayreuth.de',
+    firstName: 'Alexander',
+    lastName: 'Kanauer',
+    primaryGroup: 'Netzleitstelle',
+    email: 'alexander.knauer@stadtwerke-bayreuth.de',
+    phone: '',
+  },
+  {
+    username: 'andreas.waibel@stadtwerke-bayreuth.de',
+    firstName: 'Andreas',
+    lastName: 'Waibel',
+    primaryGroup: 'Netzleitstelle',
+    email: 'andreas.waibel@stadtwerke-bayreuth.de',
+    phone: '',
+  },
+]
+
 export const address = [
   "Alabama",
   "Alaska",
