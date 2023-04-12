@@ -492,7 +492,7 @@ export default function Navigation() {
                     >
                     <RateReviewIcon sx={{color: '#99cc33'}}/> 
                     </ListItemIcon>
-                    <ListItemText primary={"Feedback"} sx={{ opacity: open ? 1 : 0 }} />
+                    <ListItemText primary={"Feedbacks"} sx={{ opacity: open ? 1 : 0 }} />
                   </ListItemButton>
                 </ListItem>
               </NavLink>
