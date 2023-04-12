@@ -429,6 +429,34 @@ export const usersData = [
   },
 ]
 
+export const groupsData = [
+  {
+    name: 'Just alexander.knauer@stadtwerke-bayreuth.de (PUf6huwM)',
+    type: 'Admin',
+    description: 'Test'
+  },
+  {
+    name: 'Just extern.mitarbeiter3@stadtwerke-bayreuth.de (PUpgnhuW)',
+    type: 'Powerplant',
+    description: 'Test'
+  },
+  {
+    name: 'Just dieter.gradel@stadtwerke-bayreuth.de (PRx5ktlK)',
+    type: 'Solarplant',
+    description: 'Test'
+  },
+  {
+    name: 'Just bernd.poehlmann@stadtwerke-bayreuth.de (PUl2tbwS)',
+    type: 'Assistant',
+    description: 'Test'
+  },
+  {
+    name: 'Just bernhard.steger@stadtwerke-bayreuth.de (PRfuw65N)',
+    type: 'Inspector',
+    description: 'Tetst'
+  },
+]
+
 export const address = [
   "Alabama",
   "Alaska",

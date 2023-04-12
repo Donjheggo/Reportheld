@@ -90,7 +90,7 @@ const Users = () => {
     () => [
       {
         accessorKey: "username",
-        header: "USER NAME",
+        header: "Username",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -98,7 +98,7 @@ const Users = () => {
       },
       {
         accessorKey: "firstName",
-        header: "FIRST NAME",
+        header: "First name",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -106,7 +106,7 @@ const Users = () => {
       },
       {
         accessorKey: "lastName",
-        header: "LAST NAME",
+        header: "Last name",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -114,7 +114,7 @@ const Users = () => {
       },
       {
         accessorKey: "primaryGroup",
-        header: "PRIMARY GROUP",
+        header: "Primary Group",
         muiTableBodyCellEditTextFieldProps: {
           select: true, // add select property for dropdown
           children: address.map((address) => (
@@ -126,7 +126,7 @@ const Users = () => {
       },
       {
         accessorKey: "email",
-        header: "E-MAIL",
+        header: "E-mail",
         muiTableBodyCellEditTextFieldProps: {
           select: true, // add select property for dropdown
           children: address.map((address) => (
@@ -156,7 +156,7 @@ const Users = () => {
     () => [
       {
         accessorKey: "username",
-        header: "USER NAME",
+        header: "Username",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -164,7 +164,7 @@ const Users = () => {
       },
       {
         accessorKey: "firstName",
-        header: "FIRST NAME",
+        header: "First name",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -172,7 +172,7 @@ const Users = () => {
       },
       {
         accessorKey: "lastName",
-        header: "LAST NAME",
+        header: "Last name",
         size: 140,
         muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
           ...getCommonEditTextFieldProps(cell),
@@ -180,7 +180,7 @@ const Users = () => {
       },
       {
         accessorKey: "primaryGroup",
-        header: "PRIMARY GROUP",
+        header: "Primary Group",
         muiTableBodyCellEditTextFieldProps: {
           select: true, // add select property for dropdown
           children: address.map((address) => (
@@ -192,7 +192,7 @@ const Users = () => {
       },
       {
         accessorKey: "email",
-        header: "E-MAIL",
+        header: "E-mail",
         muiTableBodyCellEditTextFieldProps: {
           select: true, // add select property for dropdown
           children: address.map((address) => (
