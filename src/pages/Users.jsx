@@ -273,7 +273,7 @@ const Users = () => {
           </Box>
         )}
       />
-      <CreateNewPowerPlant
+      <CreateNewUsers
         columns={formColumns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
@@ -284,7 +284,7 @@ const Users = () => {
 };
 
 //example of creating a mui dialog modal for creating new rows
-export const CreateNewPowerPlant = ({ open, columns, onClose, onSubmit }) => {
+export const CreateNewUsers = ({ open, columns, onClose, onSubmit }) => {
   const [values, setValues] = useState(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ""] = "";

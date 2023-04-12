@@ -198,7 +198,7 @@ const Groups = () => {
           </Box>
         )}
       />
-      <CreateNewPowerPlant
+      <CreateNewGroup
         columns={formColumns}
         open={createModalOpen}
         onClose={() => setCreateModalOpen(false)}
@@ -209,7 +209,7 @@ const Groups = () => {
 };
 
 //example of creating a mui dialog modal for creating new rows
-export const CreateNewPowerPlant = ({ open, columns, onClose, onSubmit }) => {
+export const CreateNewGroup = ({ open, columns, onClose, onSubmit }) => {
   const [values, setValues] = useState(() =>
     columns.reduce((acc, column) => {
       acc[column.accessorKey ?? ""] = "";
