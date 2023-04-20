@@ -19,7 +19,7 @@ import { ItemTypeData } from "../data/mockData";
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 
-const ItemType = () => {
+const ItemTypes = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => ItemTypeData);
   const [validationErrors, setValidationErrors] = useState({});
@@ -300,4 +300,4 @@ const validateEmail = (email) =>
     );
 const validateAge = (age) => age >= 18 && age <= 50;
 
-export default ItemType;
+export default ItemTypes;
