@@ -13,32 +13,22 @@ const Profile = () => {
         <Typography gutterBottom variant="h5" component="div">
           Admin SWBT
         </Typography>
-        <FormControl fullWidth sx={{ marginTop: "10px" }}>
-          <InputLabel id="demo-simple-select-label">Language</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="Language"
-          >
-            <MenuItem value="Default">Default</MenuItem>
-            <MenuItem value="English">English</MenuItem>
-            <MenuItem value="German">German</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl fullWidth sx={{ marginTop: "10px" }}>
-          <InputLabel id="demo-simple-select-label">
-            Advance Graphic Settings
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            label="Language"
-          >
-            <MenuItem value="Default">Default</MenuItem>
-            <MenuItem value="Performance">Performance</MenuItem>
-            <MenuItem value="Compatibility">Compatibility</MenuItem>
-          </Select>
-        </FormControl>
+        <TextField fullWidth sx={{ marginTop: "10px" }} select label="Language">
+          <MenuItem value="Default">Default</MenuItem>
+          <MenuItem value="English">English</MenuItem>
+          <MenuItem value="German">German</MenuItem>
+        </TextField>
+        <TextField
+          fullWidth
+          sx={{ marginTop: "10px" }}
+          select
+          label="Advanced Graphic Settings"
+        >
+          <MenuItem value="Default">Default</MenuItem>
+          <MenuItem value="Performance">Performance</MenuItem>
+          <MenuItem value="Compatibility">Compatibility</MenuItem>
+        </TextField>
+
         <TextField
           label="Current Password"
           name="test"
