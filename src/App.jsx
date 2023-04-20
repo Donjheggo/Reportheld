@@ -9,7 +9,7 @@ import PowerplantTypes from "./pages/PowerplantTypes"
 import ManageProtocols from "./pages/ManageProtocols"
 import Templates from "./pages/Templates"
 import Variants from "./pages/Variants"
-// import ItemType from "./pages/ItemType"
+import ItemType from "./pages/ItemType"
 import Definitions from "./pages/Definitions"
 import Users from "./pages/Users"
 import Groups from "./pages/Groups"
@@ -30,7 +30,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/protocols/manage" element={<ManageProtocols/>}/>
     <Route path="/templates" element={<Templates/>}/>
     <Route path="/variants" element={<Variants/>}/>
-    {/* <Route path="/item/type" element={<ItemType/>}/> */}
+    <Route path="/item/type" element={<ItemType/>}/>
     <Route path="/definitions" element={<Definitions/>}/>
     <Route path="/users" element={<Users/>}/>
     <Route path="/groups" element={<Groups/>}/>
