@@ -17,6 +17,7 @@ import Feedback from "./pages/Feedback"
 import Profile from "./pages/Profile"
 import LoginPage from "./pages/Login"
 import AuthLayout from "./components/AuthLayout"
+import Loader from './components/Loader'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <>
@@ -43,6 +44,7 @@ const router = createBrowserRouter(createRoutesFromElements(
 const App = () => {
   return (
     <>
+      {/* <Loader/> */}
       <RouterProvider router={router} />
     </>
   )
