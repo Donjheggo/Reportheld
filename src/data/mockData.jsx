@@ -96,12 +96,6 @@ export const powerplantData = [
     site: "Netzleitstelle",
     address: "",
   },
-  {
-    name: "xxx",
-    code: "123",
-    site: "",
-    address: "",
-  },
 ];
 
 export const manageProtocolData = [
