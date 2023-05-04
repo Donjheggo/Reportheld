@@ -19,6 +19,7 @@ import Groups2Icon from "@mui/icons-material/Groups2";
 import FactoryIcon from "@mui/icons-material/Factory";
 import { Delete, Edit } from "@mui/icons-material";
 import { powerplantData, address } from "../data/mockData";
+import { ToastSuccess } from "../components/Toasts"
 import Loader from "../components/Loader"
 
 const Site = () => {
@@ -41,6 +42,7 @@ const Site = () => {
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
+      ToastSuccess("Edited Successfully.")
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
@@ -59,6 +61,7 @@ const Site = () => {
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
+      ToastSuccess("Deleted Successfully.")
       setTableData([...tableData]);
     },
     [tableData]
@@ -289,6 +292,7 @@ export const CreateNewPowerPlant = ({ open, columns, onClose, onSubmit }) => {
   const handleSubmit = () => {
     //put your validation logic here
     onSubmit(values);
+    ToastSuccess("Created Successfully")
     onClose();
   };
 

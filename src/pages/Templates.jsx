@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import { templatesData } from "../data/mockData";
+import { ToastSuccess } from "../components/Toasts";
 import Loader from "../components/Loader";
 
 const Templates = () => {
@@ -42,6 +43,7 @@ const Templates = () => {
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
+      ToastSuccess("Edited Successfully.")
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };
@@ -57,6 +59,7 @@ const Templates = () => {
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
+      ToastSuccess("Deleted Successfully.")
       setTableData([...tableData]);
     },
     [tableData]
@@ -260,6 +263,7 @@ export const CreateNewTemplate = ({ open, columns, onClose, onSubmit }) => {
   const handleSubmit = () => {
     //put your validation logic here
     onSubmit(values);
+    ToastSuccess("Created Successfuly.")
     onClose();
   };
 

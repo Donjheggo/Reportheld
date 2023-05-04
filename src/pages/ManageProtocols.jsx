@@ -6,6 +6,7 @@ import { manageProtocolData } from "../data/mockData";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LockIcon from '@mui/icons-material/Lock';
 import Loader from "../components/Loader";
+import { ToastSuccess } from "../components/Toasts";
 
 const ManageProtocols = () => {
   const [tableData, setTableData] = useState(() => manageProtocolData);
@@ -24,6 +25,7 @@ const ManageProtocols = () => {
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
+      ToastSuccess("Edited Successfully.")
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };

@@ -21,7 +21,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Delete, Edit } from "@mui/icons-material";
 import { siteData, address } from "../data/mockData";
 import Loader from "../components/Loader";
-import { toast } from "react-toastify"
+import { ToastSuccess } from "../components/Toasts"
 
 const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -47,6 +47,7 @@ const Site = () => {
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
+      ToastSuccess("Edited Successfully.")
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };
@@ -62,6 +63,7 @@ const Site = () => {
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
+      ToastSuccess("Deleted Successfully.")
       setTableData([...tableData]);
     },
     [tableData]
@@ -249,7 +251,7 @@ const Site = () => {
                 <Button
                   color="warning"
                   onClick={() => {
-                    toast.success("Fixed Permissions", {icon: <CheckCircleIcon sx={{color: '#99cc33'}} />});
+                    ToastSuccess("Fixed Permissions.")
                   }}
                   variant="contained"
                 >
@@ -284,6 +286,7 @@ export const CreateNewSite = ({ open, columns, onClose, onSubmit }) => {
   const handleSubmit = () => {
     //put your validation logic here
     onSubmit(values);
+    ToastSuccess("Created Successfuly.")
     onClose();
   };
 

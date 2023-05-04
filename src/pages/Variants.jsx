@@ -17,6 +17,7 @@ import {
 import { Delete, Edit } from "@mui/icons-material";
 import { variantsData } from "../data/mockData";
 import Loader from "../components/Loader";
+import { ToastSuccess } from "../components/Toasts";
 
 const Variants = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -41,6 +42,7 @@ const Variants = () => {
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
+      ToastSuccess("Edited Successfully.")
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };
@@ -56,6 +58,7 @@ const Variants = () => {
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
+      ToastSuccess("Deleted Successfully.")
       setTableData([...tableData]);
     },
     [tableData]
@@ -218,6 +221,7 @@ export const CreateNewVariant = ({ open, columns, onClose, onSubmit }) => {
   const handleSubmit = () => {
     //put your validation logic here
     onSubmit(values);
+    ToastSuccess("Created Successfuly.")
     onClose();
   };
 
