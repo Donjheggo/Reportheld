@@ -8,7 +8,14 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#99cc33', 
+      contrastText: '#fff',
+    },
+  },
+});
 
 export default function SignInSide() {
 
@@ -42,7 +49,7 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "#718355" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#99cc33" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Outlet />

@@ -72,11 +72,10 @@ const Login = () => {
           type="submit"
           fullWidth
           variant="contained"
+          color="primary"
           sx={{
             mt: 3,
             mb: 2,
-            backgroundColor: "#718355",
-            "&:hover": { backgroundColor: "#87986A" },
           }}
         >
           Sign In

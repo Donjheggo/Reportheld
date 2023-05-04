@@ -1,14 +1,8 @@
-@font-face {
-    font-family: swbtFont;
-    src: url(/fonts/Parisine_Bold.otf);
-  }
-
 a {
     text-decoration: none;
     color: inherit
 }
 
-.swbt-font{
-    font-family: swbtFont;
+.Toastify__progress-bar--success {
+    background-color: #99cc33 !important;
 }
-

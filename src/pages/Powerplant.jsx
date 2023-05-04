@@ -256,7 +256,7 @@ const Site = () => {
             <Grid item xs={12} sm={6} xl={6} lg={6}>
               <Box sx={{ display: "flex", gap: "1rem", paddingTop: "10px" }}>
                 <Button
-                  style={{ backgroundColor: "#99cc33" }}
+                  color="primary"
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >

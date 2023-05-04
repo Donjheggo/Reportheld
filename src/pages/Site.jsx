@@ -17,9 +17,11 @@ import {
 } from "@mui/material";
 import Groups2Icon from "@mui/icons-material/Groups2";
 import FactoryIcon from "@mui/icons-material/Factory";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Delete, Edit } from "@mui/icons-material";
 import { siteData, address } from "../data/mockData";
 import Loader from "../components/Loader";
+import { toast } from "react-toastify"
 
 const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -237,17 +239,17 @@ const Site = () => {
             <Grid item xs={12} sm={6} xl={6} lg={6}>
               <Box sx={{ display: "flex", gap: "1rem", paddingTop: '10px'}}>
                 <Button
-                  style={{ backgroundColor: "#99cc33" }}
+                  color="primary"
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
+                  
                 >
                   CREATE
                 </Button>
                 <Button
-                  style={{ backgroundColor: "gray" }}
                   color="warning"
                   onClick={() => {
-                    console.log("test");
+                    toast.success("Fixed Permissions", {icon: <CheckCircleIcon sx={{color: '#99cc33'}} />});
                   }}
                   variant="contained"
                 >
@@ -314,7 +316,7 @@ export const CreateNewSite = ({ open, columns, onClose, onSubmit }) => {
         <Button onClick={onClose} color="error">
           Cancel
         </Button>
-        <Button color="primary" onClick={handleSubmit} variant="contained">
+        <Button color="primary" onClick={handleSubmit} variant="contained" >
           Save
         </Button>
       </DialogActions>

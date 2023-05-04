@@ -168,7 +168,7 @@ export default function Navigation() {
       <AppBar
         position="fixed"
         open={open}
-        style={{ backgroundColor: "#99cc33" }}
+        color="primary"
       >
         <Toolbar>
           {!open ? (
@@ -179,29 +179,29 @@ export default function Navigation() {
               edge="start"
               sx={{ marginRight: 2 }}
             >
-              <MenuIcon />
+              <MenuIcon sx={{color: 'white'}} />
             </IconButton>
           ) : (
             <IconButton onClick={handleDrawerClose} color="inherit">
-              <ArrowBackIosIcon />
+              <ArrowBackIosIcon sx={{color: 'white'}} />
             </IconButton>
           )}
 
-          <Typography variant="h6" noWrap component="div">
+          <Typography color="white" variant="h6" noWrap component="div">
             Reportheld
           </Typography>
-          <SignalCellularAltIcon style={{ marginLeft: "8px" }} />
+          <SignalCellularAltIcon style={{ marginLeft: "8px", color: 'white' }} />
           <Box
             sx={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
           >
-            <Typography>Admin |</Typography>
+            <Typography color="white">Admin |</Typography>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenu}
-              color="inherit"
+              sx={{color: 'white'}}
             >
               <AccountCircle />
             </IconButton>
@@ -232,10 +232,10 @@ export default function Navigation() {
         <DrawerHeader style={{ display: "flex", justifyContent: "flex-start" }}>
           <img src={logo} width="50px" style={{ borderRadius: "5px" }} />
           <Typography
+            color="primary"
             variant="h3"
             sx={{
               marginLeft: "10px",
-              color: "#99cc33",
               fontWeight: "bolder",
               fontFamily: "tahoma",
             }}
@@ -264,7 +264,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <LocationOnIcon sx={{ color: "#99cc33" }} />
+                    <LocationOnIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Site"}
@@ -298,7 +298,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <FactoryIcon sx={{ color: "#99cc33" }} />
+                    <FactoryIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Powerplant"}
@@ -332,7 +332,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <InboxIcon sx={{ color: "#99cc33" }} />
+                    <InboxIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Powerplant Types"}
@@ -366,7 +366,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <AccountTreeIcon sx={{ color: "#99cc33" }} />
+                    <AccountTreeIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Manage Protocols"}
@@ -400,7 +400,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <ViewListIcon sx={{ color: "#99cc33" }} />
+                    <ViewListIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Templates"}
@@ -434,7 +434,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <WorkspacesIcon sx={{ color: "#99cc33" }} />
+                    <WorkspacesIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Variants"}
@@ -468,7 +468,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <ClassIcon sx={{ color: "#99cc33" }} />
+                    <ClassIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Item Type Definition"}
@@ -498,7 +498,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <Groups2Icon sx={{ color: "#99cc33" }} />
+                    <Groups2Icon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Users"}
@@ -528,7 +528,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <Diversity3Icon sx={{ color: "#99cc33" }} />
+                    <Diversity3Icon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Groups"}
@@ -562,7 +562,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <RateReviewIcon sx={{ color: "#99cc33" }} />
+                    <RateReviewIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Feedbacks"}
@@ -596,7 +596,7 @@ export default function Navigation() {
                       justifyContent: "center",
                     }}
                   >
-                    <AccountBoxIcon sx={{ color: "#99cc33" }} />
+                    <AccountBoxIcon color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary={"Profile"}

@@ -58,7 +58,8 @@ const Profile = () => {
         />
 
         <Button
-          sx={{ backgroundColor: "#99cc33", marginTop: "10px", width: "100%" }}
+          color="primary"
+          sx={{marginTop: "10px", width: "100%" }}
           variant="contained"
         >
           Save
