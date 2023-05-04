@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import {
   Box,
@@ -18,11 +18,20 @@ import { Delete, Edit } from "@mui/icons-material";
 import { ItemTypeData } from "../data/mockData";
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import Loader from "../components/Loader";
 
 const ItemTypes = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => ItemTypeData);
   const [validationErrors, setValidationErrors] = useState({});
+  const [preloader, setPreloader] = useState(false)
+
+  useEffect(() => {
+    setPreloader(true)
+    setTimeout(() => {
+      setPreloader(false)
+    }, 1500)
+  }, [])
 
   const handleCreateNewRow = (values) => {
     tableData.push(values);
@@ -166,6 +175,7 @@ const ItemTypes = () => {
 
   return (
     <>
+    {preloader ? <Loader/> : 
       <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
@@ -227,7 +237,7 @@ const ItemTypes = () => {
             </Grid>
           </Box>
         )}
-      />
+      />}
       <CreateNewItemType
         columns={formColumns}
         open={createModalOpen}

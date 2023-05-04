@@ -1,14 +1,23 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import { Box, IconButton, Tooltip, Grid, Typography } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import { manageProtocolData } from "../data/mockData";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LockIcon from '@mui/icons-material/Lock';
+import Loader from "../components/Loader";
 
 const ManageProtocols = () => {
   const [tableData, setTableData] = useState(() => manageProtocolData);
   const [validationErrors, setValidationErrors] = useState({});
+  const [preloader, setPreloader] = useState(false)
+
+  useEffect(() => {
+    setPreloader(true)
+    setTimeout(() => {
+      setPreloader(false)
+    }, 1500)
+  }, [])
 
   const handleSaveRowEdits = async ({ exitEditingMode, row, values }) => {
     if (!Object.keys(validationErrors).length) {
@@ -125,6 +134,7 @@ const ManageProtocols = () => {
 
   return (
     <>
+      {preloader ? <Loader/> :
       <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
@@ -166,7 +176,7 @@ const ManageProtocols = () => {
             </Grid>
           </Box>
         )}
-      />
+      />}
     </>
   );
 };

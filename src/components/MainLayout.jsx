@@ -17,9 +17,9 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 const MainLayout = () => {
   return (
-    <Box sx={{ display: "flex"}}>
+    <Box sx={{ display: "flex", backgroundColor: '#e9ecef'}}>
       <Navigation />
-      <Box component="main" sx={{ flexGrow: 1, p: 3, backgroundColor: 'aliceblue', height: '100vh' }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh' }}>
         <DrawerHeader />
         <Outlet />
       </Box>

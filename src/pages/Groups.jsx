@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 import MaterialReactTable from "material-react-table";
 import {
   Box,
@@ -16,11 +16,20 @@ import {
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import { groupsData } from "../data/mockData";
+import Loader from "../components/Loader";
 
 const Groups = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => groupsData);
   const [validationErrors, setValidationErrors] = useState({});
+  const [preloader, setPreloader] = useState(false)
+
+  useEffect(() => {
+    setPreloader(true)
+    setTimeout(() => {
+      setPreloader(false)
+    }, 1500)
+  }, [])
 
   const handleCreateNewRow = (values) => {
     tableData.push(values);
@@ -145,6 +154,7 @@ const Groups = () => {
 
   return (
     <>
+    {preloader ? <Loader/> : 
       <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
@@ -197,7 +207,7 @@ const Groups = () => {
             </Grid>
           </Box>
         )}
-      />
+      />}
       <CreateNewGroup
         columns={formColumns}
         open={createModalOpen}

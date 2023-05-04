@@ -1,8 +1,8 @@
-import React from 'react'
-import { RingLoader } from 'react-spinners'
+import React from "react";
+import { HashLoader } from "react-spinners";
+import Box from "@mui/material/Box";
 
 const Loader = () => {
-
   // const override = {
   //   display: "flex",
   //   justifyContent: 'center',
@@ -10,18 +10,21 @@ const Loader = () => {
   // };
 
   return (
-    <div className='position-absolute top-50 start-50 translate-middle w-auto responsive-loader'>
-        <RingLoader
-        color={"#ffc107"}
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="80vh"
+    >
+      <HashLoader
+        color={"#99cc33"}
         loading={true}
         size={150}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
-    </div>
+    </Box>
+  );
+};
 
-
-  )
-}
-
-export default Loader
+export default Loader;

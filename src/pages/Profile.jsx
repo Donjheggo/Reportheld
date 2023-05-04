@@ -1,13 +1,25 @@
-import * as React from "react";
+import React, {useState, useEffect} from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, TextField } from "@mui/material";
+import Loader from "../components/Loader";
 
 const Profile = () => {
+  const [preloader, setPreloader] = useState(false)
+
+  useEffect(() => {
+    setPreloader(true)
+    setTimeout(() => {
+      setPreloader(false)
+    }, 1500)
+  }, [])
+
   return (
+    <>
+    {preloader ? <Loader/> : 
     <Card sx={{ maxWidth: "100vw" }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -58,7 +70,8 @@ const Profile = () => {
           Sign Out
         </Button>
       </CardContent>
-    </Card>
+    </Card>}
+    </>
   );
 };
 

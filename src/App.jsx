@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from "react-router-dom"
 
 import MainLayout from "./components/MainLayout"
@@ -42,10 +42,21 @@ const router = createBrowserRouter(createRoutesFromElements(
 ))
 
 const App = () => {
+
+  const [preloader, setPreloader] = useState(false)
+
+  useEffect( () => {
+    setPreloader(true)
+    setTimeout( () => {
+      setPreloader(false)
+    }, 2000)
+  }, [])
+
   return (
     <>
-      {/* <Loader/> */}
+      {preloader ?  <Loader/> :
       <RouterProvider router={router} />
+      }
     </>
   )
 }
