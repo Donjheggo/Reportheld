@@ -41,6 +41,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 import logo from "/images/swbt_logo.png";
 
@@ -114,28 +116,37 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open && {
-    ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
-  }),
-  ...(!open && {
-    ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-  }),
-}));
 
-export default function Navigation() {
+
+export default function Navigation(props) {
   const theme = useTheme();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const Drawer = styled(MuiDrawer, {
+    shouldForwardProp: (prop) => prop !== "open",
+  })(({ theme, open }) => ({
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: "nowrap",
+    boxSizing: "border-box",
+    ...(open && {
+      ...openedMixin(theme),
+      "& .MuiDrawer-paper": {
+        ...openedMixin(theme),
+        backgroundColor: props.bgColor,
+        color: props.textColor
+      },
+    }),
+    ...(!open && {
+      ...closedMixin(theme),
+      "& .MuiDrawer-paper": {
+        ...closedMixin(theme),
+        backgroundColor: props.bgColor,
+      },
+    }),
+  }));
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -168,7 +179,7 @@ export default function Navigation() {
       <AppBar
         position="fixed"
         open={open}
-        color="primary"
+        sx={{backgroundColor: props.appbarColor}}
       >
         <Toolbar>
           {!open ? (
@@ -179,31 +190,42 @@ export default function Navigation() {
               edge="start"
               sx={{ marginRight: 2 }}
             >
-              <MenuIcon sx={{color: 'white'}} />
+              <MenuIcon sx={{color: props.darkMode ? "#cdd9e5" : "white"}} />
             </IconButton>
           ) : (
             <IconButton onClick={handleDrawerClose} color="inherit">
-              <ArrowBackIosIcon sx={{color: 'white'}} />
+              <ArrowBackIosIcon sx={{color: props.darkMode ? "#cdd9e5" : "white"}} />
             </IconButton>
           )}
 
-          <Typography color="white" variant="h6" noWrap component="div">
+          <Typography color={props.darkMode ? "#cdd9e5" : "white"} variant="h6" noWrap component="div">
             Reportheld
           </Typography>
-          <SignalCellularAltIcon style={{ marginLeft: "8px", color: 'white' }} />
+          <SignalCellularAltIcon style={{ marginLeft: "8px", color: props.darkMode ? "#cdd9e5" : "white" }} />
           <Box
             sx={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
           >
-            <Typography color="white">Admin |</Typography>
+            <Typography color={props.darkMode ? "#cdd9e5" : "white"}>Admin</Typography>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenu}
-              sx={{color: 'white'}}
+              sx={{ color: props.darkMode ? "#cdd9e5" : "white"}}
             >
               <AccountCircle />
+            </IconButton>
+            |
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={props.toggleDarkMode}
+              sx={{ color: props.darkMode ? "#cdd9e5" : "white"}}
+            >
+              {props.darkMode ? <LightModeIcon/> :<DarkModeIcon />}
             </IconButton>
           </Box>
 
@@ -221,8 +243,14 @@ export default function Navigation() {
             }}
             open={Boolean(anchorEl)}
             onClose={handleClose}
+            PaperProps={{
+              style: {
+                backgroundColor: props.bgColor
+              },
+            }}
           >
             <MenuItem onClick={profileNavigate}>Profile</MenuItem>
+            <MenuItem >German</MenuItem>
             <MenuItem onClick={logout}>Logout</MenuItem>
           </Menu>
         </Toolbar>
@@ -244,7 +272,7 @@ export default function Navigation() {
           </Typography>
         </DrawerHeader>
         <Divider />
-        <List style={{ paddingTop: "0px" }}>
+        <List style={{ paddingTop: "0px"}}>
           {/* SITE */}
           <Divider />
           <List>

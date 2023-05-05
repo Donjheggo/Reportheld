@@ -20,10 +20,64 @@ const MainLayout = (props) => {
         main: '#99cc33', 
         contrastText: '#fff',
       },
+      text:{
+        primary: darkMode ? "#cdd9e5" : "#424949"
+      },
       background: {
-        default: darkMode ? '#22272e' : "#fff"
+        default: darkMode ? '#424949' : "#fff"
+      },
+      typography: {
+        body: {
+          color: darkMode ? '#cdd9e5' : '#424949',
+        },
+        h1: {
+          color: darkMode ? '#cdd9e5' : '#424949',
+        },
+        p: {
+          color: darkMode ? '#cdd9e5' : '#424949',
+        },
       }
     },
+    components: {
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: darkMode ? '#424949' : "#fff",
+          color: darkMode ? "#cdd9e5" : "#424949"
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: darkMode ? "#cdd9e5" : "#424949"
+        },
+      },
+    },
+    MuiModal: {
+      styleOverrides: {
+        root: {
+          color: darkMode ? "#cdd9e5" : "#424949"
+        },
+      },
+    },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: darkMode ? '#424949' : "#fff",
+          color: darkMode ? "#cdd9e5" : "#424949",
+        },
+      },
+    },
+    MuiTable: {
+      styleOverrides: {
+        root: {
+          backgroundColor: darkMode ? '#424949' : "#fff",
+          color: darkMode ? "#cdd9e5" : "#424949"
+        },
+      },
+    },
+  },
   });
   
 
@@ -43,13 +97,10 @@ const MainLayout = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: "flex", }}>
-        <Navigation  />
+        <Navigation toggleDarkMode={toggleDarkMode} darkMode={darkMode} bgColor={darkMode ? "#424949" : "#fff"} appbarColor={darkMode? "#424949" : "#99cc33"} />
         <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh' }}>
           <DrawerHeader />
           <Outlet />
-          <Button onClick={toggleDarkMode} variant="contained" color="primary" sx={{position: 'fixed', bottom: '20px', right: '20px', borderRadius: '100px'}}>
-            {darkMode ? <LightModeIcon/> : <DarkModeIcon/> }
-          </Button>
         </Box>
       </Box>
     </ThemeProvider>
