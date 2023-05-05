@@ -6,9 +6,6 @@ import Navigation from "./Navigation";
 import Box from "@mui/material/Box";
 import { styled, useTheme } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Button from '@mui/material/Button';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
 
 
 const MainLayout = (props) => {
