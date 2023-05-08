@@ -182,14 +182,13 @@ const Feedback = () => {
           <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">
               <IconButton
-                color="warning"
                 onClick={() => table.setEditingRow(row)}
               >
                 <Edit />
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Delete">
-              <IconButton color="error" onClick={() => handleDeleteRow(row)}>
+              <IconButton onClick={() => handleDeleteRow(row)}>
                 <Delete />
               </IconButton>
             </Tooltip>

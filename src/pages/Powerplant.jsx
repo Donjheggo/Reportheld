@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 import MaterialReactTable from "material-react-table";
 import {
   Box,
@@ -27,6 +28,8 @@ const Site = () => {
   const [tableData, setTableData] = useState(() => powerplantData);
   const [validationErrors, setValidationErrors] = useState({});
   const [preloader, setPreloader] = useState(false)
+  
+  const navigate = useNavigate()
 
   useEffect(() => {
     setPreloader(true)
@@ -218,36 +221,33 @@ const Site = () => {
           <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">
               <IconButton
-                color="warning"
                 onClick={() => table.setEditingRow(row)}
               >
                 <Edit />
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Delete">
-              <IconButton color="error" onClick={() => handleDeleteRow(row)}>
+              <IconButton onClick={() => handleDeleteRow(row)}>
                 <Delete />
               </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Powerplants">
-              <Button
-                color="secondary"
+              <IconButton
                 onClick={() => {
                   alert("Navigate to Powerplant");
                 }}
               >
                 <FactoryIcon />
-              </Button>
+              </IconButton>
             </Tooltip>
             <Tooltip arrow placement="right" title="Edit Groups">
-              <Button
-                color="success"
+              <IconButton
                 onClick={() => {
                   alert("Navigate to groups");
                 }}
               >
                 <Groups2Icon />
-              </Button>
+              </IconButton>
             </Tooltip>
           </Box>
         )}

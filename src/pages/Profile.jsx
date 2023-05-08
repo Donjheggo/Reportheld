@@ -65,7 +65,8 @@ const Profile = () => {
           Save
         </Button>
         <Button
-          sx={{ backgroundColor: "gray", marginTop: "10px", width: "100%" }}
+          color="secondary"
+          sx={{marginTop: "10px", width: "100%" }}
           variant="contained"
         >
           Sign Out

@@ -17,6 +17,10 @@ const MainLayout = (props) => {
         main: '#99cc33', 
         contrastText: '#fff',
       },
+      secondary: {
+        main: '#cdd9e5', 
+        contrastText: '#424949',
+      },
       text:{
         primary: darkMode ? "#cdd9e5" : "#424949"
       },
