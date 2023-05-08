@@ -242,7 +242,7 @@ export const CreateNewFeedback = ({ open, columns, onClose, onSubmit }) => {
 
   return (
     <Dialog open={open}>
-      <DialogTitle textAlign="center">Create New Site</DialogTitle>
+      <DialogTitle textAlign="center">Create New Feedbacks</DialogTitle>
       <DialogContent>
         <form onSubmit={(e) => e.preventDefault()}>
           <Stack
