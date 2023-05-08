@@ -25,7 +25,7 @@ const Profile = () => {
         <Typography gutterBottom variant="h5" component="div">
           Admin SWBT
         </Typography>
-        <TextField fullWidth sx={{ marginTop: "10px" }} select label="Language">
+        <TextField fullWidth sx={{ marginTop: "10px" }} select label="Language" value="">
           <MenuItem value="Default">Default</MenuItem>
           <MenuItem value="English">English</MenuItem>
           <MenuItem value="German">German</MenuItem>
@@ -35,6 +35,7 @@ const Profile = () => {
           sx={{ marginTop: "10px" }}
           select
           label="Advanced Graphic Settings"
+          value=""
         >
           <MenuItem value="Default">Default</MenuItem>
           <MenuItem value="Performance">Performance</MenuItem>
