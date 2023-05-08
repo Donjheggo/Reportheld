@@ -74,7 +74,7 @@ export const siteData = [
 export const powerplantData = [
   {
     name: "Netzservice",
-    code: "",
+    code: "AAAA",
     site: "WTest1",
     address: "",
   },
