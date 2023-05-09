@@ -14,7 +14,7 @@ const MainLayout = (props) => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: '#99cc33', 
+        main: darkMode ? "#347d39" : "#99cc33", 
         contrastText: '#fff',
       },
       secondary: {

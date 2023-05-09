@@ -3,12 +3,6 @@ import { HashLoader } from "react-spinners";
 import Box from "@mui/material/Box";
 
 const Loader = () => {
-  // const override = {
-  //   display: "flex",
-  //   justifyContent: 'center',
-  //   borderColor: "red",
-  // };
-
   return (
     <Box
       display="flex"
@@ -17,7 +11,7 @@ const Loader = () => {
       minHeight="80vh"
     >
       <HashLoader
-        color={"#99cc33"}
+        color="#99cc33"
         loading={true}
         size={150}
         aria-label="Loading Spinner"
