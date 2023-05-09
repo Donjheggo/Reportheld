@@ -1,22 +1,9 @@
-import React, {useState, useEffect} from 'react'
-import Loader from "../components/Loader"
+import React from 'react'
 
 const PowerplantTypes = () => {
-  const [preloader, setPreloader] = useState(false)
-
-  useEffect(() => {
-    setPreloader(true)
-    setTimeout(() => {
-      setPreloader(false)
-    }, 1500)
-  }, [])
-
-
   return (
     <>
-      {preloader ? <Loader/> : 
-        <div>PowerplantTypes</div>
-      }
+      <div>PowerplantTypes</div>
     </>
   )
 }

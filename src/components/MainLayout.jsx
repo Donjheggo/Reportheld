@@ -1,16 +1,15 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Outlet } from "react-router-dom";
 import Navigation from "./Navigation";
+import Loader from "../components/Loader"
 
 ///////// MUI //////////
 import Box from "@mui/material/Box";
-import { styled, useTheme } from "@mui/material/styles";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { styled, createTheme, ThemeProvider  } from "@mui/material/styles";
 
-
-const MainLayout = (props) => {
+const MainLayout = ({preLoader}) => {
   const [darkMode, setDarkMode] = useState(false)
-  
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -18,8 +17,8 @@ const MainLayout = (props) => {
         contrastText: '#fff',
       },
       secondary: {
-        main: '#cdd9e5', 
-        contrastText: '#424949',
+        main: darkMode? "#373e47" : "#cdd9e5", 
+        contrastText: darkMode? "darkMode?" : "#424949",
       },
       text:{
         primary: darkMode ? "#cdd9e5" : "#424949"
@@ -101,7 +100,7 @@ const MainLayout = (props) => {
         <Navigation toggleDarkMode={toggleDarkMode} darkMode={darkMode} bgColor={darkMode ? "#424949" : "#fff"} appbarColor={darkMode? "#424949" : "#99cc33"} />
         <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh' }}>
           <DrawerHeader />
-          <Outlet />
+          {preLoader ? <Loader/> : <Outlet/> }
         </Box>
       </Box>
     </ThemeProvider>

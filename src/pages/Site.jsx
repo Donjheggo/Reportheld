@@ -21,23 +21,14 @@ import FactoryIcon from "@mui/icons-material/Factory";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Delete, Edit } from "@mui/icons-material";
 import { siteData, address } from "../data/mockData";
-import Loader from "../components/Loader";
 import { ToastSuccess } from "../components/Toasts"
 
 const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => siteData);
   const [validationErrors, setValidationErrors] = useState({});
-  const [preloader, setPreloader] = useState(false)
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    setPreloader(true)
-    setTimeout(() => {
-      setPreloader(false)
-    }, 1500)
-  }, [])
 
   const handleCreateNewRow = (values) => {
     tableData.push(values);
@@ -180,7 +171,6 @@ const Site = () => {
 
   return (
     <>
-      {preloader ? <Loader/> : 
       <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
@@ -260,7 +250,7 @@ const Site = () => {
             </Grid>
           </Box>
         )}
-      />}
+      />
 
       <CreateNewSite
         columns={formColumns}

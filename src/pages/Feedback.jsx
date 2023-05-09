@@ -18,20 +18,11 @@ import {
 import { Delete, Edit } from "@mui/icons-material";
 import { feedbackData } from "../data/mockData";
 import { ToastSuccess } from "../components/Toasts";
-import Loader from "../components/Loader";
 
 const Feedback = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => feedbackData);
   const [validationErrors, setValidationErrors] = useState({});
-  const [preloader, setPreloader] = useState(false)
-
-  useEffect(() => {
-    setPreloader(true)
-    setTimeout(() => {
-      setPreloader(false)
-    },1500)
-  }, [])
 
   const handleCreateNewRow = (values) => {
     tableData.push(values);
@@ -160,7 +151,6 @@ const Feedback = () => {
 
   return (
     <>
-    {preloader ? <Loader/> :
       <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
@@ -212,7 +202,7 @@ const Feedback = () => {
             </Grid>
           </Box>
         )}
-      />}
+      />
       <CreateNewFeedback
         columns={formColumns}
         open={createModalOpen}

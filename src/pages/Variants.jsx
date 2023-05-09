@@ -16,21 +16,12 @@ import {
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import { variantsData } from "../data/mockData";
-import Loader from "../components/Loader";
 import { ToastSuccess } from "../components/Toasts";
 
 const Variants = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => variantsData);
   const [validationErrors, setValidationErrors] = useState({});
-  const [preloader, setPreloader] = useState(false)
-
-  useEffect(() => {
-    setPreloader(true)
-    setTimeout(() => {
-      setPreloader(false)
-    }, 1500)
-  }, [])
 
   const handleCreateNewRow = (values) => {
     tableData.push(values);
@@ -145,7 +136,6 @@ const Variants = () => {
 
   return (
     <>
-    {preloader ? <Loader/> : 
       <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
@@ -197,7 +187,7 @@ const Variants = () => {
             </Grid>
           </Box>
         )}
-      />}
+      />
       <CreateNewVariant
         columns={formColumns}
         open={createModalOpen}

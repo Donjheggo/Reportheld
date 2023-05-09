@@ -21,22 +21,11 @@ import FactoryIcon from "@mui/icons-material/Factory";
 import { Delete, Edit } from "@mui/icons-material";
 import { powerplantData, address } from "../data/mockData";
 import { ToastSuccess } from "../components/Toasts"
-import Loader from "../components/Loader"
 
 const Site = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [tableData, setTableData] = useState(() => powerplantData);
   const [validationErrors, setValidationErrors] = useState({});
-  const [preloader, setPreloader] = useState(false)
-  
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    setPreloader(true)
-    setTimeout(() => {
-      setPreloader(false)
-    },1500)
-  },[])
 
   const handleCreateNewRow = (values) => {
     tableData.push(values);
@@ -199,7 +188,6 @@ const Site = () => {
 
   return (
     <>
-      {preloader ? <Loader/> :
       <MaterialReactTable
         displayColumnDefOptions={{
           "mrt-row-actions": {
@@ -269,7 +257,7 @@ const Site = () => {
             </Grid>
           </Box>
         )}
-      />}
+      />
       <CreateNewPowerPlant
         columns={formColumns}
         open={createModalOpen}
