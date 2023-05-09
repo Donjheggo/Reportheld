@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navigation from "./Navigation";
 import Loader from "../components/Loader"
 
@@ -7,8 +7,18 @@ import Loader from "../components/Loader"
 import Box from "@mui/material/Box";
 import { styled, createTheme, ThemeProvider  } from "@mui/material/styles";
 
-const MainLayout = ({preLoader}) => {
+const MainLayout = () => {
   const [darkMode, setDarkMode] = useState(false)
+  const [preLoader, setPreloader] = useState(false)
+
+  const location = useLocation()
+
+  useEffect(() => {
+    setPreloader(true)
+    setTimeout(() => {
+      setPreloader(false)
+    }, 1500);
+  }, [location])
 
   const theme = createTheme({
     palette: {
@@ -100,7 +110,7 @@ const MainLayout = ({preLoader}) => {
         <Navigation toggleDarkMode={toggleDarkMode} darkMode={darkMode} bgColor={darkMode ? "#424949" : "#fff"} appbarColor={darkMode? "#424949" : "#99cc33"} />
         <Box component="main" sx={{ flexGrow: 1, p: 3, height: '100vh' }}>
           <DrawerHeader />
-          {preLoader ? <Loader/> : <Outlet/> }
+          {preLoader ? <Loader darkMode={darkMode}/> : <Outlet/> }
         </Box>
       </Box>
     </ThemeProvider>
