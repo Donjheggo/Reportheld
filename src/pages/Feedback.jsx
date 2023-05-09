@@ -235,7 +235,7 @@ export const CreateNewFeedback = ({ open, columns, onClose, onSubmit }) => {
   const handleSubmit = () => {
     //put your validation logic here
     onSubmit(values);
-    ToastSuccess("Created Successfuly.")
+    ToastSuccess("Created Successfuly.");
     onClose();
   };
 
@@ -252,14 +252,35 @@ export const CreateNewFeedback = ({ open, columns, onClose, onSubmit }) => {
             }}
           >
             {columns.map((column) => (
-              <TextField
-                key={column.accessorKey}
-                label={column.header}
-                name={column.accessorKey}
-                onChange={(e) =>
-                  setValues({ ...values, [e.target.name]: e.target.value })
-                }
-              />
+              <React.Fragment key={column.accessorKey}>
+                {column.accessorKey === "description" ? (
+                  <TextField
+                    label={column.header}
+                    name={column.accessorKey}
+                    value={values[column.accessorKey]}
+                    multiline
+                    rows={4}
+                    onChange={(e) =>
+                      setValues({
+                        ...values,
+                        [e.target.name]: e.target.value,
+                      })
+                    }
+                  />
+                ) : (
+                  <TextField
+                    label={column.header}
+                    name={column.accessorKey}
+                    value={values[column.accessorKey]}
+                    onChange={(e) =>
+                      setValues({
+                        ...values,
+                        [e.target.name]: e.target.value,
+                      })
+                    }
+                  />
+                )}
+              </React.Fragment>
             ))}
           </Stack>
         </form>
