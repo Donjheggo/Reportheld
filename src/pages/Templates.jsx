@@ -186,7 +186,6 @@ const Templates = () => {
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
-        muiToolbarAlertBannerChipProps={{ color: 'primary' }}
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">

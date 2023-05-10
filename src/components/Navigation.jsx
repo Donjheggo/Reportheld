@@ -59,7 +59,7 @@ const openedMixin = (theme) => ({
     width: "6px",
   },
   "&::-webkit-scrollbar-track": {
-    backgroundColor: "#f1f1f1",
+    backgroundColor: "transparent",
   },
   "&::-webkit-scrollbar-thumb": {
     backgroundColor: "#888",
