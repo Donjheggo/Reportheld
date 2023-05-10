@@ -190,29 +190,29 @@ export default function Navigation(props) {
               edge="start"
               sx={{ marginRight: 2 }}
             >
-              <MenuIcon sx={{color: props.darkMode ? "#cdd9e5" : "white"}} />
+              <MenuIcon sx={{color: props.darkMode ? "white" : "white"}} />
             </IconButton>
           ) : (
             <IconButton onClick={handleDrawerClose} color="inherit">
-              <ArrowBackIosIcon sx={{color: props.darkMode ? "#cdd9e5" : "white"}} />
+              <ArrowBackIosIcon sx={{color: props.darkMode ? "white" : "white"}} />
             </IconButton>
           )}
 
-          <Typography color={props.darkMode ? "#cdd9e5" : "white"} variant="h6" noWrap component="div">
+          <Typography color={props.darkMode ? "white" : "white"} variant="h6" noWrap component="div">
             Reportheld
           </Typography>
-          <SignalCellularAltIcon style={{ marginLeft: "8px", color: props.darkMode ? "#cdd9e5" : "white" }} />
+          <SignalCellularAltIcon style={{ marginLeft: "8px", color: props.darkMode ? "white" : "white" }} />
           <Box
             sx={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
           >
-            <Typography color={props.darkMode ? "#cdd9e5" : "white"}>Admin</Typography>
+            <Typography color={props.darkMode ? "white" : "white"}>Admin</Typography>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenu}
-              sx={{ color: props.darkMode ? "#cdd9e5" : "white"}}
+              sx={{ color: props.darkMode ? "white" : "white"}}
             >
               <AccountCircle />
             </IconButton>
@@ -223,7 +223,7 @@ export default function Navigation(props) {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={props.toggleDarkMode}
-              sx={{ color: props.darkMode ? "#cdd9e5" : "white"}}
+              sx={{ color: props.darkMode ? "white" : "white"}}
             >
               {props.darkMode ? <LightModeIcon/> :<DarkModeIcon />}
             </IconButton>

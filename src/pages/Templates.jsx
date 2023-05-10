@@ -186,6 +186,7 @@ const Templates = () => {
         enableEditing
         onEditingRowSave={handleSaveRowEdits}
         onEditingRowCancel={handleCancelRowEdits}
+        muiToolbarAlertBannerChipProps={{ color: 'primary' }}
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">
@@ -211,14 +212,13 @@ const Templates = () => {
             <Grid item xs={12} sm={6} xl={6} lg={6}>
               <Box sx={{ display: "flex", gap: "1rem", paddingTop: '10px'}}>
                 <Button
-                  style={{ backgroundColor: "#99cc33" }}
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >
                   CREATE
                 </Button>
                 <Button
-                  style={{ backgroundColor: "gray" }}
+                color="secondary"
                   onClick={() => alert("Import Template")}
                   variant="contained"
                 >
