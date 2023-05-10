@@ -20,76 +20,6 @@ const MainLayout = () => {
     }, 1500);
   }, [location])
 
-  // const theme = createTheme({
-  //   palette: {
-  //     primary: {
-  //       main: darkMode ? "#347d39" : "#99cc33", 
-  //       contrastText: '#fff',
-  //     },
-  //     secondary: {
-  //       main: darkMode? "#373e47" : "#cdd9e5", 
-  //       contrastText: darkMode? "darkMode?" : "#424949",
-  //     },
-  //     text:{
-  //       primary: darkMode ? "#cdd9e5" : "#424949"
-  //     },
-  //     background: {
-  //       default: darkMode ? '#424949' : "#fff"
-  //     },
-  //     typography: {
-  //       body: {
-  //         color: darkMode ? '#cdd9e5' : '#424949',
-  //       },
-  //       h1: {
-  //         color: darkMode ? '#cdd9e5' : '#424949',
-  //       },
-  //       p: {
-  //         color: darkMode ? '#cdd9e5' : '#424949',
-  //       },
-  //     }
-  //   },
-  //   components: {
-  //   MuiCard: {
-  //     styleOverrides: {
-  //       root: {
-  //         backgroundColor: darkMode ? '#424949' : "#fff",
-  //         color: darkMode ? "#cdd9e5" : "#424949"
-  //       },
-  //     },
-  //   },
-  //   MuiInputLabel: {
-  //     styleOverrides: {
-  //       root: {
-  //         color: darkMode ? "#cdd9e5" : "#424949"
-  //       },
-  //     },
-  //   },
-  //   MuiModal: {
-  //     styleOverrides: {
-  //       root: {
-  //         color: darkMode ? "#cdd9e5" : "#424949"
-  //       },
-  //     },
-  //   },
-  //   MuiDialog: {
-  //     styleOverrides: {
-  //       paper: {
-  //         backgroundColor: darkMode ? '#424949' : "#fff",
-  //         color: darkMode ? "#cdd9e5" : "#424949",
-  //       },
-  //     },
-  //   },
-  //   MuiTable: {
-  //     styleOverrides: {
-  //       root: {
-  //         backgroundColor: darkMode ? '#424949' : "#fff",
-  //         color: darkMode ? "#cdd9e5" : "#424949"
-  //       },
-  //     },
-  //   },
-  // },
-  // });
-
   const theme = createTheme({
     palette:{
       mode: darkMode ? 'dark' : 'light',
@@ -113,9 +43,18 @@ const MainLayout = () => {
         },
       }
     },
+    components:{
+      MuiIconButton: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'inherit',
+            color: "inherit"
+          },
+        }
+      }
+    }
   })
   
-
   const DrawerHeader = styled("div")(({ theme }) => ({
     display: "flex",
     alignItems: "center",
