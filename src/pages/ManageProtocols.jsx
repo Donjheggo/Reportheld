@@ -1,11 +1,11 @@
-import React, { useCallback, useMemo, useState, useEffect } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import MaterialReactTable from "material-react-table";
 import { Box, IconButton, Tooltip, Grid, Typography } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import { manageProtocolData } from "../data/mockData";
-import LockOpenIcon from '@mui/icons-material/LockOpen';
-import LockIcon from '@mui/icons-material/Lock';
-import { ToastSuccess } from "../components/Toasts";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import LockIcon from "@mui/icons-material/Lock";
+import { toast } from "react-toastify";
 
 const ManageProtocols = () => {
   const [tableData, setTableData] = useState(() => manageProtocolData);
@@ -16,7 +16,7 @@ const ManageProtocols = () => {
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
-      ToastSuccess("Edited Successfully.")
+      toast.success("Edited Successfully.");
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };
@@ -118,7 +118,7 @@ const ManageProtocols = () => {
           ...getCommonEditTextFieldProps(cell),
         }),
         Cell: ({ cell }) => {
-          return cell ? <LockIcon/> : <LockOpenIcon/>;
+          return cell ? <LockIcon /> : <LockOpenIcon />;
         },
       },
     ],
@@ -147,9 +147,7 @@ const ManageProtocols = () => {
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">
-              <IconButton
-                onClick={() => table.setEditingRow(row)}
-              >
+              <IconButton onClick={() => table.setEditingRow(row)}>
                 <Edit />
               </IconButton>
             </Tooltip>

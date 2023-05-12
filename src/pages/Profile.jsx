@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+import { MenuItem } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 
 const Profile = () => {
 

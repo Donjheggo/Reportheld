@@ -3,6 +3,7 @@ a {
     color: inherit
 }
 
-.Toastify__progress-bar--success {
-    background-color: #99cc33 !important;
-}
+
+/* .Toastify__toast--success svg{
+    fill: red;
+} */

@@ -18,7 +18,7 @@ import { Delete, Edit } from "@mui/icons-material";
 import { ItemTypeData } from "../data/mockData";
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
-import { ToastSuccess } from "../components/Toasts";
+import { toast } from "react-toastify"
 
 const ItemTypes = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -35,7 +35,7 @@ const ItemTypes = () => {
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
-      ToastSuccess("Edited Successfully.")
+      toast.success("Edited Successfully.")
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };
@@ -51,7 +51,7 @@ const ItemTypes = () => {
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
-      ToastSuccess("Deleted Successfully.")
+      toast.success("Deleted Successfully.")
       setTableData([...tableData]);
     },
     [tableData]
@@ -252,7 +252,7 @@ export const CreateNewItemType = ({ open, columns, onClose, onSubmit }) => {
   const handleSubmit = () => {
     //put your validation logic here
     onSubmit(values);
-    ToastSuccess("Created Successfuly.")
+    toast.success("Created Successfuly.")
     onClose();
   };
 

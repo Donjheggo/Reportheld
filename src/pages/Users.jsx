@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState, useEffect } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import MaterialReactTable from "material-react-table";
 import {
   Box,
@@ -15,11 +15,9 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import Groups2Icon from "@mui/icons-material/Groups2";
-import FactoryIcon from "@mui/icons-material/Factory";
 import { Delete, Edit } from "@mui/icons-material";
 import { usersData, address } from "../data/mockData";
-import { ToastSuccess } from "../components/Toasts";
+import { toast } from "react-toastify";
 
 const Users = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
@@ -36,7 +34,7 @@ const Users = () => {
       tableData[row.index] = values;
       //send/receive api updates here, then refetch or update local table data for re-render
       setTableData([...tableData]);
-      ToastSuccess("Edited Successfuly.")
+      toast.success("Edited Successfuly.");
       exitEditingMode(); //required to exit editing mode and close modal
     }
   };
@@ -52,7 +50,7 @@ const Users = () => {
       }
       //send api delete request here, then refetch or update local table data for re-render
       tableData.splice(row.index, 1);
-      ToastSuccess("Deleted Successfuly.")
+      toast.success("Deleted Successfuly.");
       setTableData([...tableData]);
     },
     [tableData]
@@ -243,9 +241,7 @@ const Users = () => {
         renderRowActions={({ row, table }) => (
           <Box sx={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
             <Tooltip arrow placement="right" title="Edit">
-              <IconButton
-                onClick={() => table.setEditingRow(row)}
-              >
+              <IconButton onClick={() => table.setEditingRow(row)}>
                 <Edit />
               </IconButton>
             </Tooltip>
@@ -264,7 +260,7 @@ const Users = () => {
             <Grid item xs={12} sm={6} xl={6} lg={6}>
               <Box sx={{ display: "flex", gap: "1rem", paddingTop: "10px" }}>
                 <Button
-                 color="primary"
+                  color="primary"
                   onClick={() => setCreateModalOpen(true)}
                   variant="contained"
                 >
@@ -297,7 +293,7 @@ export const CreateNewUsers = ({ open, columns, onClose, onSubmit }) => {
   const handleSubmit = () => {
     //put your validation logic here
     onSubmit(values);
-    ToastSuccess("Created Successfuly.")
+    toast.success("Created Successfuly.");
     onClose();
   };
 

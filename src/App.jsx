@@ -18,7 +18,6 @@ import Profile from "./pages/Profile"
 import LoginPage from "./pages/Login"
 import AuthLayout from "./components/AuthLayout"
 import Loader from './components/Loader'
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -59,7 +58,6 @@ const App = () => {
       {preloader ?  <Loader/> :
         <div>
           <RouterProvider router={router} />
-          <ToastContainer/>
         </div>
       }
     </>
