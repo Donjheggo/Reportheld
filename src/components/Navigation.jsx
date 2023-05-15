@@ -58,13 +58,6 @@ const openedMixin = (theme) => ({
   "&::-webkit-scrollbar": {
     width: "6px",
   },
-  "&::-webkit-scrollbar-track": {
-    backgroundColor: "transparent",
-  },
-  "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "#888",
-    borderRadius: "6px",
-  },
 });
 
 const closedMixin = (theme) => ({
@@ -75,13 +68,6 @@ const closedMixin = (theme) => ({
   overflowX: "hidden",
   "&::-webkit-scrollbar": {
     width: "6px",
-  },
-  "&::-webkit-scrollbar-track": {
-    backgroundColor: "#f1f1f1",
-  },
-  "&::-webkit-scrollbar-thumb": {
-    backgroundColor: "#888",
-    borderRadius: "6px",
   },
   width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {

@@ -3,7 +3,37 @@ a {
     color: inherit
 }
 
-
-/* .Toastify__toast--success svg{
-    fill: red;
-} */
+:root {
+    --scrollbar-color: #888; 
+    --scrollbar-bg-color: transparent; 
+    --scrollbar-width: 6px; 
+    --scrollbar-radius: 6px;
+  }
+  
+  /* WebKit-based browsers */
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    border-radius: var(--scrollbar-radius);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-bg-color);
+  }
+  
+  /* Firefox */
+  ::-moz-scrollbar {
+    width: var(--scrollbar-width);
+  }
+  
+  ::-moz-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+  }
+  
+  ::-moz-scrollbar-track {
+    background-color: var(--scrollbar-bg-color);
+  }
+  
