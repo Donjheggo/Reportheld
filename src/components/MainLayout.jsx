@@ -75,6 +75,7 @@ const MainLayout = () => {
     }
     .Toastify__toast--success {
       background-color: ${(props) => (props.darkMode ? "#121212" : "#fff")};
+      color: ${(props) => (props.darkMode ? "#fff" : "#121212")};
     }
     .Toastify__toast--success svg {
       fill: ${(props) => (props.darkMode ? "#347d39" : "#99cc33")};
