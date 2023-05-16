@@ -145,6 +145,21 @@ const Site = () => {
   const tableColumns = useMemo(
     () => [
       {
+        accessorKey: "image",
+        header: "Image",
+        size: 140,
+        Cell: ({ cell }) => (
+          <img
+            src={"/images/windmill2.jpg"}
+            alt="Image"
+            style={{ width: "80px", height: "auto", borderRadius: "6px" }}
+          />
+        ),
+        muiTableBodyCellEditTextFieldProps: ({ cell }) => ({
+          ...getCommonEditTextFieldProps(cell),
+        }),
+      },
+      {
         accessorKey: "name",
         header: "Name",
         size: 140,
